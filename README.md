@@ -11,7 +11,7 @@ Based on the original [ALVR project](https://github.com/polygraphene/ALVR) from 
 
 ## Technology
 
-ALVR² is built in C++ with [Sky kit](http://omega.gg/Sky/sources) and the [Qt framework](https://github.com/qtproject).
+ALVR² is built in C++ with the [Qt framework](https://github.com/qtproject) and [Sky kit](http://omega.gg/Sky/sources).
 
 ## Platforms
 
