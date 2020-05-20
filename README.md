@@ -16,8 +16,8 @@ Sky is built on the [Qt framework](https://github.com/qtproject).<br>
 
 ## Platforms
 
-- Windows 7 and later.
-- Linux 32 bit and 64 bit.
+- Windows 7 and later
+- Linux 32 bit and 64 bit
 
 ## Hardware compatibily
 
@@ -25,19 +25,19 @@ Headset:
 - Oculus Quest
 
 GPU:
-- Nvidia GTX 600+, RTX 2000+.
-- Radeon RX 4XX, RX 5XX.
+- Nvidia GTX 600+, RTX 2000+
+- Radeon RX 4XX, RX 5XX
 
 Network:
-- Wireless connection with 5ghz / 802.11ac compatibily.
+- Wireless connection with 5ghz / 802.11ac compatibily
 
 ## Requirements
 
 On Windows:
-- [Git for Windows](https://git-for-windows.github.io).
+- [Git for Windows](https://git-for-windows.github.io)
 
 Recommended:
-- [Qt Creator](https://download.qt.io/official_releases/qtcreator).
+- [Qt Creator](https://download.qt.io/official_releases/qtcreator)
 
 ## License
 
