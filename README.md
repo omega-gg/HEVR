@@ -5,7 +5,7 @@ ALVR²
 ** This is a work in progress and not yet released **
 
 ALVR² is a high speed Virtual Reality streaming application.<br>
-Designed to let you play SteamVR games from a standalone headset.<br>
+Designed to play SteamVR games from a standalone headset.<br>
 With a focus on low-latency, compatibily and simplicity.<br>
 Based on the original [ALVR project](https://github.com/polygraphene/ALVR) from polygraphene.<br>
 
@@ -22,14 +22,14 @@ Sky is built on the [Qt framework](https://github.com/qtproject).<br>
 ## Hardware compatibily
 
 Headset:
-    - Oculus Quest
+- Oculus Quest
 
 GPU:
-    - Nvidia GTX 600+, RTX 2000+.
-    - Radeon RX 4XX, RX 5XX.
+- Nvidia GTX 600+, RTX 2000+.
+- Radeon RX 4XX, RX 5XX.
 
 Network:
-    - Wireless connection with 5ghz / 802.11ac compatibily.
+- Wireless connection with 5ghz / 802.11ac compatibily.
 
 ## Requirements
 
