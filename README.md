@@ -11,6 +11,10 @@ Based on the original [ALVR project](https://github.com/polygraphene/ALVR) from 
 
 Note: This the streaming application, you'll need the ALVR client on your headset.
 
+## Community
+
+- [Discord channel](https://discord.gg/ypagkhV)
+
 ## Technology
 
 ALVR² is built in C++ with the [Qt framework](https://github.com/qtproject) and [Sky kit](http://omega.gg/Sky/sources).
