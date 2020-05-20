@@ -9,6 +9,8 @@ Designed to play SteamVR games from a standalone headset.<br>
 With a focus on low-latency, compatibily and simplicity.<br>
 Based on the original [ALVR project](https://github.com/polygraphene/ALVR) from polygraphene.<br>
 
+Note: This the streaming application, you'll need the ALVR client on your headset.
+
 ## Technology
 
 ALVR² is built in C++ with the [Qt framework](https://github.com/qtproject) and [Sky kit](http://omega.gg/Sky/sources).
