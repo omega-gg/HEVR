@@ -31,7 +31,7 @@ Headset:
 
 GPU:
 - Nvidia GTX 600+, RTX 2000+
-- Radeon RX 4XX, RX 5XX
+- Radeon RX 400+, RX 500+
 
 Network:
 - Wireless connection with 5ghz / 802.11ac compatibily
