@@ -14,8 +14,8 @@ Note: This the streaming application, you'll need the ALVR client on your headse
 
 References:
 - [ALVR polygraphene](https://github.com/polygraphene/ALVR)
-- [ALVR JackD83](https://github.com/polygraphene/ALVR)
-- [ALVR-client JackD83](https://github.com/JackD83/ALVRClient)
+- [ALVR fork JackD83](https://github.com/polygraphene/ALVR)
+- [ALVR-client fork JackD83](https://github.com/JackD83/ALVRClient)
 
 ## Community
 
