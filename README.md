@@ -55,7 +55,7 @@ Recommended IDE:
 
 ## License
 
-Copyright (C) 2015 - 2020 ALVR² authors.
+Copyright (C) 2015 - 2020 ALVR² authors | http://omega.gg/ALVR2
 
 ### Authors
 
