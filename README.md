@@ -9,7 +9,7 @@ VR games from a standalone headset like the Oculus Quest, with a focus on low-la
 and simplicity. This project is based on the original ALVR project from [polygraphene](https://github.com/polygraphene)
 and the ALVR fork from [JackD83](https://github.com/JackD83).
 
-Note: This the streaming application, you'll need the ALVR client on your headset.
+Note: This is the streaming application, you'll need an ALVR client on your headset.
 
 References:
 - [ALVR polygraphene](https://github.com/polygraphene/ALVR)
