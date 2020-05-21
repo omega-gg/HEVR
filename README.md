@@ -1,6 +1,7 @@
 ALVR²
 ---
 [![azure](https://dev.azure.com/bunjee/ALVR2/_apis/build/status/omega-gg.ALVR2)](https://dev.azure.com/bunjee/ALVR2/_build)
+[![LGPLv3](https://img.shields.io/badge/License-LGPLv3-blue.svg)](https://www.gnu.org/licenses/lgpl.html)
 
 ** This is a work in progress and not yet released **
 
