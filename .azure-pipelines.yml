@@ -3,7 +3,7 @@
 #--------------------------------------------------------------------------------------------------
 
 jobs:
-- job: win32_qt5
+- job: win32
   pool:
     vmImage: "windows-latest"
   steps:
@@ -17,9 +17,9 @@ jobs:
       cd deploy
       7z a ../ALVR2.zip *
   - publish: $(System.DefaultWorkingDirectory)/ALVR2.zip
-    artifact: ALVR2-win32-qt5
+    artifact: ALVR2-win32
 
-- job: win64_qt5
+- job: win64
   pool:
     vmImage: "windows-latest"
   steps:
@@ -33,11 +33,11 @@ jobs:
       cd deploy
       7z a ../ALVR2.zip *
   - publish: $(System.DefaultWorkingDirectory)/ALVR2.zip
-    artifact: ALVR2-win64-qt5
+    artifact: ALVR2-win64
 
 #--------------------------------------------------------------------------------------------------
 
-- job: win32_msvc_qt5
+- job: win32_msvc
   pool:
     vmImage: "windows-latest"
   steps:
@@ -51,9 +51,9 @@ jobs:
       cd deploy
       7z a ../ALVR2.zip *
   - publish: $(System.DefaultWorkingDirectory)/ALVR2.zip
-    artifact: ALVR2-win32-msvc-qt5
+    artifact: ALVR2-win32-msvc
 
-- job: win64_msvc_qt5
+- job: win64_msvc
   pool:
     vmImage: "windows-latest"
   steps:
@@ -67,13 +67,13 @@ jobs:
       cd deploy
       7z a ../ALVR2.zip *
   - publish: $(System.DefaultWorkingDirectory)/ALVR2.zip
-    artifact: ALVR2-win64-msvc-qt5
+    artifact: ALVR2-win64-msvc
 
 #--------------------------------------------------------------------------------------------------
 # macOS
 #--------------------------------------------------------------------------------------------------
 
-- job: macOS_qt5
+- job: macOS
   pool:
     vmImage: "macOS-latest"
   steps:
@@ -87,13 +87,13 @@ jobs:
       cd deploy
       zip -rq ../ALVR2.zip *
   - publish: $(System.DefaultWorkingDirectory)/ALVR2.zip
-    artifact: ALVR2-macOS-qt5
+    artifact: ALVR2-macOS
 
 #--------------------------------------------------------------------------------------------------
 # Linux
 #--------------------------------------------------------------------------------------------------
 
-- job: linux32_qt5
+- job: linux32
   pool:
     vmImage: "ubuntu-latest"
   steps:
@@ -111,11 +111,11 @@ jobs:
                                      cd deploy;
                                      zip -rq ../ALVR2.zip *"
   - publish: $(System.DefaultWorkingDirectory)/ALVR2.zip
-    artifact: ALVR2-linux32-qt5
+    artifact: ALVR2-linux32
 
 #--------------------------------------------------------------------------------------------------
 
-- job: linux64_qt5
+- job: linux64
   pool:
     vmImage: "ubuntu-latest"
   steps:
@@ -133,4 +133,4 @@ jobs:
                                      cd deploy;
                                      zip -rq ../ALVR2.zip *"
   - publish: $(System.DefaultWorkingDirectory)/ALVR2.zip
-    artifact: HelloConsole-linux64-qt5
+    artifact: HelloConsole-linux64

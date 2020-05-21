@@ -90,7 +90,7 @@ if [ $os = "windows" ]; then
     cp "$path"/Qt5Xml.dll         deploy
     cp "$path"/Qt5XmlPatterns.dll deploy
 
-elif [ $1= "macOS" ]; then
+elif [ $1 = "macOS" ]; then
 
     # FIXME Qt 5.14 macOS: We have to copy qt.conf to avoid a segfault.
     cp "$path"/qt.conf deploy
@@ -100,7 +100,7 @@ elif [ $1= "macOS" ]; then
     cp "$path"/QtXml.dylib         deploy
     cp "$path"/QtXmlPatterns.dylib deploy
 
-elif [ $2 = "linux" ]; then
+elif [ $1 = "linux" ]; then
 
     cp "$path"/libQt5Core.so.5        deploy
     cp "$path"/libQt5Network.so.5     deploy
