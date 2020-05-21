@@ -17,6 +17,7 @@ References:
 - [ALVR polygraphene](https://github.com/polygraphene/ALVR)
 - [ALVR fork JackD83](https://github.com/polygraphene/ALVR)
 - [ALVRClient fork JackD83](https://github.com/JackD83/ALVRClient)
+- [3unjee devlog](https://github.com/3unjee/devlogs/blob/master/ALVR2.md)
 
 ## Community
 

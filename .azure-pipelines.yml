@@ -133,4 +133,4 @@ jobs:
                                      cd deploy;
                                      zip -rq ../ALVR2.zip *"
   - publish: $(System.DefaultWorkingDirectory)/ALVR2.zip
-    artifact: HelloConsole-linux64
+    artifact: ALVR2-linux64
