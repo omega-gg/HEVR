@@ -19,6 +19,7 @@ References:
 ## Community
 
 - [Discord channel](https://discord.gg/ypagkhV)
+- [Reddit ALVR](https://www.reddit.com/r/ALVR)
 
 ## Technology
 
