@@ -4,12 +4,17 @@ ALVR²
 
 ** This is a work in progress and not yet released **
 
-ALVR² is a high speed Virtual Reality streaming application.<br>
-Designed to play SteamVR games from a standalone headset.<br>
-With a focus on low-latency, compatibily and simplicity.<br>
-Based on the original [ALVR project](https://github.com/polygraphene/ALVR) from polygraphene.<br>
+ALVR² is Virtual Reality remote display application. It's designed to stream SteamVR games from a
+standalone headset like the Oculus Quest, with a focus on low-latency, compatibily and simplicity.
+This project is based on the original [ALVR project](https://github.com/polygraphene/ALVR) from
+polygraphene and the [ALVR fork](https://github.com/JackD83/ALVR) from JackD83.
 
 Note: This the streaming application, you'll need the ALVR client on your headset.
+
+References:
+- [ALVR polygraphene repository](https://github.com/polygraphene/ALVR)
+- [ALVR JackD83 repository](https://github.com/polygraphene/ALVR)
+- [ALVR JackD83 client](https://github.com/JackD83/ALVRClient)
 
 ## Community
 
