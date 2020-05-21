@@ -28,6 +28,7 @@ ALVR² is built in C++ with the [Qt framework](https://github.com/qtproject) and
 
 - Windows 7 and later
 - Linux 32 bit and 64 bit
+- macOS 64 bit (experimental)
 
 ## Hardware compatibily
 
