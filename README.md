@@ -61,12 +61,12 @@ You can configure and build ALVR2 with a single line:
 
     sh build.sh <win32 | win64 | win32-msvc | win64-msvc | macOS | linux> all
 
-For instance you would do that on Windows:
+For instance you would do that for Windows 64 bit:
 
     * open Git Bash *
     git clone https://github.com/omega-gg/ALVR2.git
     cd ALVR2
-    sh build.sh win32 all
+    sh build.sh win64 all
 
 That's a convenient way to configure and build everything the first time.
 
