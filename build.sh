@@ -85,10 +85,10 @@ if [ $# != 1 -a $# != 2 ] \
    [ $1 != "win32" -a $1 != "win64" -a $1 != "win32-msvc" -a $1 != "win64-msvc" -a \
      $1 != "macOS" -a $1 != "linux" ] \
    || \
-   [ $# = 2 -a "$2" != "all" -a "$2" != "deploy" -a "$2" != "clean" ]; then
+   [ $# = 2 -a "$2" != "all" -a "$2" != "lib" -a "$2" != "deploy" -a "$2" != "clean" ]; then
 
     echo "Usage: build <win32 | win64 | win32-msvc | win64-msvc | macOS | linux>"
-    echo "             [all | deploy | clean]"
+    echo "             [all | lib | deploy | clean]"
 
     exit 1
 fi
@@ -112,6 +112,8 @@ if [ "$2" = "all" ]; then
     cd "$path"
 
     sh build.sh $1 deploy
+
+    exit 0
 fi
 
 #--------------------------------------------------------------------------------------------------
@@ -241,6 +243,11 @@ $qmake --version
 echo ""
 
 cd build
+
+if [ "$2" = "lib" ]; then
+
+    config="$config lib"
+fi
 
 $qmake -r -spec $spec "$config" ..
 

@@ -16,10 +16,10 @@ if [ $# != 1 -a $# != 2 ] \
    [ $1 != "win32" -a $1 != "win64" -a $1 != "win32-msvc" -a $1 != "win64-msvc" -a \
      $1 != "macOS" -a $1 != "linux" ] \
    || \
-   [ $# = 2 -a "$2" != "clean" ]; then
+   [ $# = 2 -a "$2" != "lib" -a "$2" != "clean" ]; then
 
     echo "Usage: deploy <win32 | win64 | win32-msvc | win64-msvc | macOS | linux>"
-    echo "              [clean]"
+    echo "              [lib | clean]"
 
     exit 1
 fi
@@ -119,37 +119,53 @@ echo "COPYING ALVR2"
 
 if [ $os = "windows" ]; then
 
-    cp bin/ALVR2.exe deploy
+    if [ "$2" = "lib" ]; then
+
+        cp lib/ALVR2.a   deploy
+        cp lib/ALVR2.dll deploy
+    else
+        cp bin/ALVR2.exe deploy
+    fi
 
 elif [ $1 = "macOS" ]; then
 
-    cp bin/ALVR2 deploy
+    if [ "$2" = "lib" ]; then
 
-    cd deploy
+        cp lib/ALVR2.dylib deploy
+    else
+        cp bin/ALVR2 deploy
 
-    #----------------------------------------------------------------------------------------------
-    # Qt
+        cd deploy
 
-    install_name_tool -change @rpath/QtCore.framework/Versions/5/QtCore \
-                              @loader_path/QtCore.dylib ALVR2
+        #----------------------------------------------------------------------------------------------
+        # Qt
 
-    install_name_tool -change @rpath/QtNetwork.framework/Versions/5/QtNetwork \
-                              @loader_path/QtNetwork.dylib ALVR2
+        install_name_tool -change @rpath/QtCore.framework/Versions/5/QtCore \
+                                  @loader_path/QtCore.dylib ALVR2
 
-    install_name_tool -change @rpath/QtQml.framework/Versions/5/QtQml \
-                              @loader_path/QtQml.dylib ALVR2
+        install_name_tool -change @rpath/QtNetwork.framework/Versions/5/QtNetwork \
+                                  @loader_path/QtNetwork.dylib ALVR2
 
-    install_name_tool -change @rpath/QtXml.framework/Versions/5/QtXml \
-                              @loader_path/QtXml.dylib ALVR2
+        install_name_tool -change @rpath/QtQml.framework/Versions/5/QtQml \
+                                  @loader_path/QtQml.dylib ALVR2
 
-    install_name_tool -change @rpath/QtXmlPatterns.framework/Versions/5/QtXmlPatterns \
-                              @loader_path/QtXmlPatterns.dylib ALVR2
+        install_name_tool -change @rpath/QtXml.framework/Versions/5/QtXml \
+                                  @loader_path/QtXml.dylib ALVR2
 
-    #----------------------------------------------------------------------------------------------
+        install_name_tool -change @rpath/QtXmlPatterns.framework/Versions/5/QtXmlPatterns \
+                                  @loader_path/QtXmlPatterns.dylib ALVR2
 
-    cd -
+        #----------------------------------------------------------------------------------------------
+
+        cd -
+    fi
 
 elif [ $1 = "linux" ]; then
 
-    cp bin/ALVR2 deploy
+    if [ "$2" = "lib" ]; then
+
+        cp lib/ALVR2.so deploy
+    else
+        cp bin/ALVR2 deploy
+    fi
 fi

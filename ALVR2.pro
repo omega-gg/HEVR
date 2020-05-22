@@ -4,7 +4,19 @@ SK_CORE = $$SK/src/SkCore/src
 
 TARGET = ALVR2
 
-DESTDIR = $$_PRO_FILE_PWD_/bin
+lib {
+    DESTDIR = $$_PRO_FILE_PWD_/lib
+
+    TEMPLATE = lib
+
+    win32:CONFIG += dll
+} else {
+    DESTDIR = $$_PRO_FILE_PWD_/bin
+
+    CONFIG += console
+
+    macx:CONFIG -= app_bundle
+}
 
 contains(QT_MAJOR_VERSION, 4) {
     QT += network script xml xmlpatterns
@@ -13,10 +25,6 @@ contains(QT_MAJOR_VERSION, 4) {
 }
 
 QT -= gui
-
-CONFIG += console
-
-macx:CONFIG -= app_bundle
 
 DEFINES += SK_CONSOLE SK_NO_QML SK_CORE_LIBRARY
 
