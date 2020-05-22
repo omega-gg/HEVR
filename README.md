@@ -55,37 +55,42 @@ On Windows:
 Recommended IDE:
 - [Qt Creator](https://download.qt.io/official_releases/qtcreator)
 
-## Quick build
+## Quickstart
 
 You can configure and build ALVR2 with a single line:
 
     sh build.sh <win32 | win64 | win32-msvc | win64-msvc | macOS | linux> all
 
+For instance you would do that on Windows:
+
+    * open Git Bash *
+    git clone https://github.com/omega-gg/ALVR2.git
+    cd ALVR2
+    sh build.sh win32 all
+
+That's a convenient way to set everything up the first time.
+
 Note: This will create the 3rdparty and Sky folder in the parent directory.
 
-## 3rdparty
+## Building
 
-You can install third party libraries with:
+After that, you can run each step of the build yourself by calling the following scripts:
+
+### 3rdparty
 
     sh 3rdparty.sh <win32 | win64 | win32-msvc | win64-msvc | macOS | linux>
 
-## Configure
-
-You can configure ALVR2 with:
+### Configure
 
     sh configure.sh <win32 | win64 | win32-msvc | win64-msvc | macOS | linux>
                     [sky | clean]
 
-## Build
-
-You can build ALVR2 with:
+### Build
 
     sh build.sh <win32 | win64 | win32-msvc | win64-msvc | macOS | linux>
                 [all | deploy | clean]
 
-## Deploy
-
-You can deploy ALVR2 with:
+### Deploy
 
     sh deploy.sh <win32 | win64 | win32-msvc | win64-msvc | macOS | linux>
                  [clean]
