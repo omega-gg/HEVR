@@ -113,6 +113,25 @@ if [ "$2" = "all" ]; then
 
     sh build.sh $1 deploy
 
+    sh build.sh $1 lib
+
+    #----------------------------------------------------------------------------------------------
+    # FIXME: This is a hack for deploying the library without clearing the deploy folder.
+
+    if [ $1 = "win32" -o $1 = "win64" -o $1 = "win32-msvc" -o $1 = "win64-msvc" ]; then
+
+        cp lib/ALVR2.a   deploy
+        cp lib/ALVR2.dll deploy
+
+    elif [ $1 = "macOS" ]; then
+
+        cp lib/ALVR2.dylib deploy
+    else
+        cp lib/ALVR2.so deploy
+    fi
+
+    #----------------------------------------------------------------------------------------------
+
     exit 0
 fi
 
