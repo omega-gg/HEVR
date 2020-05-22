@@ -68,13 +68,13 @@ For instance you would do that on Windows:
     cd ALVR2
     sh build.sh win32 all
 
-That's a convenient way to set everything up the first time.
+That's a convenient way to configure and build everything the first time.
 
 Note: This will create the 3rdparty and Sky folder in the parent directory.
 
 ## Building
 
-After that, you can run each step of the build yourself by calling the following scripts:
+Alternatively, you can run each step of the build yourself by calling the following scripts:
 
 Install the dependencies:
 
