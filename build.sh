@@ -85,12 +85,33 @@ if [ $# != 1 -a $# != 2 ] \
    [ $1 != "win32" -a $1 != "win64" -a $1 != "win32-msvc" -a $1 != "win64-msvc" -a \
      $1 != "macOS" -a $1 != "linux" ] \
    || \
-   [ $# = 2 -a "$2" != "deploy" -a "$2" != "clean" ]; then
+   [ $# = 2 -a "$2" != "all" -a "$2" != "deploy" -a "$2" != "clean" ]; then
 
     echo "Usage: build <win32 | win64 | win32-msvc | win64-msvc | macOS | linux>"
-    echo "             [deploy | clean]"
+    echo "             [all | deploy | clean]"
 
     exit 1
+fi
+
+#--------------------------------------------------------------------------------------------------
+# All
+#--------------------------------------------------------------------------------------------------
+
+if [ "$2" = "all" ]; then
+
+    path="$PWD"
+
+    sh 3rdparty.sh $1
+
+    sh configure.sh $1 sky
+
+    cd ../Sky
+
+    sh build.sh qt5 $1 tools
+
+    cd "$PATH"
+
+    sh build.sh $1 deploy
 fi
 
 #--------------------------------------------------------------------------------------------------

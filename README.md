@@ -1,11 +1,11 @@
-ALVR²
+ALVR2
 ---
 [![azure](https://dev.azure.com/bunjee/ALVR2/_apis/build/status/omega-gg.ALVR2)](https://dev.azure.com/bunjee/ALVR2/_build)
 [![LGPLv3](https://img.shields.io/badge/License-LGPLv3-blue.svg)](https://www.gnu.org/licenses/lgpl.html)
 
 ** This is a work in progress and not yet released **
 
-ALVR² is a Virtual Reality streaming application.<br>
+ALVR2 is a Virtual Reality streaming application.<br>
 Designed to play VR games from a standalone headset.<br>
 With a focus on low-latency, compatibily and simplicity.<br>
 
@@ -27,7 +27,7 @@ References:
 
 ## Technology
 
-ALVR² is built in C++ with the [Qt framework](https://github.com/qtproject) and [Sky kit](http://omega.gg/Sky/sources).
+ALVR2 is built in C++ with the [Qt framework](https://github.com/qtproject) and [Sky kit](http://omega.gg/Sky/sources).
 
 ## Platforms
 
@@ -57,7 +57,7 @@ Recommended IDE:
 
 ## License
 
-Copyright (C) 2015 - 2020 ALVR² authors | http://omega.gg/ALVR2
+Copyright (C) 2015 - 2020 ALVR2 authors | http://omega.gg/ALVR2
 
 ### Authors
 
@@ -65,7 +65,7 @@ Copyright (C) 2015 - 2020 ALVR² authors | http://omega.gg/ALVR2
 
 ### GNU Lesser General Public License Usage
 
-ALVR² may be used under the terms of the GNU Lesser General Public License version 3 as published
+ALVR2 may be used under the terms of the GNU Lesser General Public License version 3 as published
 by the Free Software Foundation and appearing in the LICENSE.md file included in the packaging of
 this file. Please review the following information to ensure the GNU Lesser General Public License
 requirements will be met: https://www.gnu.org/licenses/lgpl.html.

@@ -1,4 +1,4 @@
-# [ALVR²](http://omega.gg/ALVR2)
+# [ALVR2](http://omega.gg/ALVR2)
 ---
 
 ## Authors
