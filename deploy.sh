@@ -121,7 +121,8 @@ if [ $os = "windows" ]; then
 
     if [ "$2" = "lib" ]; then
 
-        cp lib/ALVR2.a   deploy
+        cp lib/libALVR2.a deploy
+
         cp lib/ALVR2.dll deploy
     else
         cp bin/ALVR2.exe deploy
