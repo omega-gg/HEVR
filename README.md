@@ -57,7 +57,7 @@ Recommended IDE:
 
 ## Quick build
 
-You can build ALVR2 quickly with:
+You can configure and build ALVR2 with a single line:
 
     sh build.sh <win32 | win64 | win32-msvc | win64-msvc | macOS | linux> all
 
