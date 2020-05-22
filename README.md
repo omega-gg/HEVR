@@ -88,12 +88,12 @@ Configure the build:
 Build the application:
 
     sh build.sh <win32 | win64 | win32-msvc | win64-msvc | macOS | linux>
-                [all | deploy | clean]
+                [all | lib | deploy | clean]
 
 Deploy the application and its dependencies:
 
     sh deploy.sh <win32 | win64 | win32-msvc | win64-msvc | macOS | linux>
-                 [clean]
+                 [lib | clean]
 
 ## License
 
