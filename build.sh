@@ -109,7 +109,7 @@ if [ "$2" = "all" ]; then
 
     sh build.sh qt5 $1 tools
 
-    cd "$PATH"
+    cd "$path"
 
     sh build.sh $1 deploy
 fi
