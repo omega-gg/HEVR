@@ -76,21 +76,21 @@ Note: This will create the 3rdparty and Sky folder in the parent directory.
 
 After that, you can run each step of the build yourself by calling the following scripts:
 
-### 3rdparty
+Install the dependencies:
 
     sh 3rdparty.sh <win32 | win64 | win32-msvc | win64-msvc | macOS | linux>
 
-### Configure
+Configure the build:
 
     sh configure.sh <win32 | win64 | win32-msvc | win64-msvc | macOS | linux>
                     [sky | clean]
 
-### Build
+Build the application:
 
     sh build.sh <win32 | win64 | win32-msvc | win64-msvc | macOS | linux>
                 [all | deploy | clean]
 
-### Deploy
+Deploy the application and its dependencies:
 
     sh deploy.sh <win32 | win64 | win32-msvc | win64-msvc | macOS | linux>
                  [clean]
