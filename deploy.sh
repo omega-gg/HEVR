@@ -131,7 +131,7 @@ elif [ $1 = "macOS" ]; then
 
     if [ "$2" = "lib" ]; then
 
-        cp lib/ALVR2.dylib deploy
+        cp lib/libALVR2.dylib deploy
     else
         cp bin/ALVR2 deploy
 
@@ -164,7 +164,7 @@ elif [ $1 = "linux" ]; then
 
     if [ "$2" = "lib" ]; then
 
-        cp lib/ALVR2.so deploy
+        cp lib/libALVR2.so deploy
     else
         cp bin/ALVR2 deploy
     fi

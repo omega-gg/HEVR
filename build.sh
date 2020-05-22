@@ -125,9 +125,9 @@ if [ "$2" = "all" ]; then
 
     elif [ $1 = "macOS" ]; then
 
-        cp lib/ALVR2.dylib deploy
+        cp lib/libALVR2.dylib deploy
     else
-        cp lib/ALVR2.so deploy
+        cp lib/libALVR2.so deploy
     fi
 
     #----------------------------------------------------------------------------------------------
