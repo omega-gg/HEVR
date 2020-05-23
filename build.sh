@@ -120,9 +120,7 @@ if [ "$2" = "all" ]; then
 
     if [ $1 = "win32" -o $1 = "win64" -o $1 = "win32-msvc" -o $1 = "win64-msvc" ]; then
 
-        cp lib/*ALVR2.a deploy
-
-        cp lib/ALVR2.dll deploy
+        cp lib/*ALVR2.* deploy
 
     elif [ $1 = "macOS" ]; then
 
