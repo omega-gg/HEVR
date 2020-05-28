@@ -12,6 +12,7 @@ HEADERS += $$SK_CORE/controllers/WController.h \
            $$SK_CORE/controllers/WControllerDownload.h \
            $$SK_CORE/controllers/WControllerDownload_p.h \
            src/controllers/VControllerCore.h \
+           src/controllers/VControllerCore_p.h \
 
 SOURCES += $$SK_CORE/controllers/WController.cpp \
            $$SK_CORE/controllers/WControllerApplication.cpp \

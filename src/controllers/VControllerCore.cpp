@@ -16,13 +16,37 @@
 
 #include "VControllerCore.h"
 
+#ifndef HEVR_NO_CONTROLLERCORE
+
 W_INIT_CONTROLLER(VControllerCore)
+
+//-------------------------------------------------------------------------------------------------
+// Private
+//-------------------------------------------------------------------------------------------------
+
+#include "VControllerCore_p.h"
+
+VControllerCorePrivate::VControllerCorePrivate(VControllerCore * p) : WControllerPrivate(p) {}
+
+void VControllerCorePrivate::init()
+{
+    qDebug("Welcome to HEVR");
+}
 
 //-------------------------------------------------------------------------------------------------
 // Ctor / dtor
 //-------------------------------------------------------------------------------------------------
 
-VControllerCore::VControllerCore() : WController()
+VControllerCore::VControllerCore() : WController(new VControllerCorePrivate(this)) {}
+
+//-------------------------------------------------------------------------------------------------
+// Initialize
+//-------------------------------------------------------------------------------------------------
+
+/* virtual */ void VControllerCore::init()
 {
-    qDebug("Welcome to HEVR");
+    Q_D(VControllerCore); d->init();
 }
+
+
+#endif // HEVR_NO_CONTROLLERCORE
