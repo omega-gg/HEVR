@@ -14,15 +14,32 @@
 */
 //=================================================================================================
 
-#include "ControllerCore.h"
+#ifndef VDATALOCAL_H
+#define VDATALOCAL_H
 
-W_INIT_CONTROLLER(ControllerCore)
+// Sk includes
+#include <WLocalObject>
 
-//-------------------------------------------------------------------------------------------------
-// Ctor / dtor
-//-------------------------------------------------------------------------------------------------
+// Hevr includes
+#include <Hevr>
 
-ControllerCore::ControllerCore() : WController()
+class HEVR_EXPORT VDataLocal : public WLocalObject
 {
-    qDebug("Welcome to HEVR");
-}
+    Q_OBJECT
+
+public:
+    explicit VDataLocal(QObject * parent = NULL);
+
+public: // WLocalObject reimplementation
+    /* Q_INVOKABLE virtual */ bool load(bool instant = false);
+
+    /* Q_INVOKABLE virtual */ QString getFilePath() const;
+
+protected: // WLocalObject reimplementation
+    /* virtual */ WAbstractThreadAction * onLoad(const QString & path);
+
+private:
+    Q_DISABLE_COPY(VDataLocal)
+};
+
+#endif // VDATALOCAL_H

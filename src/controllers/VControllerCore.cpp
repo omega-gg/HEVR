@@ -14,31 +14,15 @@
 */
 //=================================================================================================
 
-#ifndef CONTROLLERCORE_H
-#define CONTROLLERCORE_H
+#include "VControllerCore.h"
 
-// Sk includes
-#include <WController>
+W_INIT_CONTROLLER(VControllerCore)
 
-// Application includes
-#include "DataLocal.h"
+//-------------------------------------------------------------------------------------------------
+// Ctor / dtor
+//-------------------------------------------------------------------------------------------------
 
-// Defines
-#define core ControllerCore::instance()
-
-class ControllerCore : public WController
+VControllerCore::VControllerCore() : WController()
 {
-    Q_OBJECT
-
-private:
-    ControllerCore();
-
-private: // Variables
-    DataLocal _local;
-
-private:
-    Q_DISABLE_COPY      (ControllerCore)
-    W_DECLARE_CONTROLLER(ControllerCore)
-};
-
-#endif // CONTROLLERCORE_H
+    qDebug("Welcome to HEVR");
+}

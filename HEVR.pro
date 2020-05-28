@@ -10,8 +10,6 @@ lib {
     TEMPLATE = lib
 
     win32:CONFIG += dll
-
-    DEFINES += SK_HEVR_LIBRARY
 } else {
     DESTDIR = $$_PRO_FILE_PWD_/bin
 
@@ -28,7 +26,7 @@ contains(QT_MAJOR_VERSION, 4) {
 
 QT -= gui
 
-DEFINES += SK_CONSOLE SK_NO_QML SK_CORE_LIBRARY
+DEFINES += SK_CONSOLE SK_NO_QML SK_CORE_LIBRARY HEVR_LIBRARY
 
 contains(QT_MAJOR_VERSION, 4) {
     DEFINES += QT_4
@@ -49,8 +47,7 @@ include(src/thread/thread.pri)
 include(src/3rdparty/qtsingleapplication/qtsingleapplication.pri)
 
 INCLUDEPATH += $$SK/include/SkCore \
-               src/controllers \
-               src/io \
+               include/HEVR \
 
 # Windows dependency for ShellExecuteA
 win32-msvc*:LIBS += shell32.lib
@@ -63,4 +60,5 @@ OTHER_FILES += 3rdparty.sh \
                LICENSE.md \
                AUTHORS.md \
                .azure-pipelines.yml \
+               include/generate.sh \
                dist/changes/1.0.0.md \

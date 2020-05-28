@@ -14,27 +14,27 @@
 */
 //=================================================================================================
 
-#include "DataLocal.h"
+#include "VDataLocal.h"
 
 // Sk includes
 #include <WControllerFile>
 
 //=================================================================================================
-// DataLocal
+// VDataLocal
 //=================================================================================================
 
-/* explicit */ DataLocal::DataLocal(QObject * parent) : WLocalObject(parent) {}
+/* explicit */ VDataLocal::VDataLocal(QObject * parent) : WLocalObject(parent) {}
 
 //-------------------------------------------------------------------------------------------------
 // WLocalObject reimplementation
 //-------------------------------------------------------------------------------------------------
 
-/* Q_INVOKABLE virtual */ bool DataLocal::load(bool)
+/* Q_INVOKABLE virtual */ bool VDataLocal::load(bool)
 {
     return true;
 }
 
-/* Q_INVOKABLE virtual */ QString DataLocal::getFilePath() const
+/* Q_INVOKABLE virtual */ QString VDataLocal::getFilePath() const
 {
     return WControllerFile::applicationPath("data.xml");
 }
@@ -43,7 +43,7 @@
 // Protected WLocalObject reimplementation
 //-------------------------------------------------------------------------------------------------
 
-/* virtual */ WAbstractThreadAction * DataLocal::onLoad(const QString &)
+/* virtual */ WAbstractThreadAction * VDataLocal::onLoad(const QString &)
 {
     return NULL;
 }

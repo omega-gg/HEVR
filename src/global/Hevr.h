@@ -14,23 +14,16 @@
 */
 //=================================================================================================
 
-// Sk includes
-#include <WCoreApplication>
-
-// HEVR includes
-#include <VControllerCore>
+#ifndef HEVR_H_
+#define HEVR_H_
 
 //-------------------------------------------------------------------------------------------------
-// Functions
-//-------------------------------------------------------------------------------------------------
+// Defines
 
-int main(int argc, char * argv[])
-{
-    QCoreApplication * application = WCoreApplication::create(argc, argv);
+#if defined(HEVR_LIBRARY)
+#   define HEVR_EXPORT Q_DECL_EXPORT
+#else
+#   define HEVR_EXPORT Q_DECL_IMPORT
+#endif
 
-    if (application == NULL) return 0;
-
-    W_CREATE_CONTROLLER(VControllerCore);
-
-    return application->exec();
-}
+#endif // HEVR_H_

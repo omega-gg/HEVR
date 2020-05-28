@@ -14,29 +14,31 @@
 */
 //=================================================================================================
 
-#ifndef DATALOCAL_H
-#define DATALOCAL_H
+#ifndef VCONTROLLERCORE_H
+#define VCONTROLLERCORE_H
 
 // Sk includes
-#include <WLocalObject>
+#include <WController>
 
-class DataLocal : public WLocalObject
+// Hevr includes
+#include <VDataLocal>
+
+// Defines
+#define core VControllerCore::instance()
+
+class HEVR_EXPORT VControllerCore : public WController
 {
     Q_OBJECT
 
-public:
-    explicit DataLocal(QObject * parent = NULL);
+private:
+    VControllerCore();
 
-public: // WLocalObject reimplementation
-    /* Q_INVOKABLE virtual */ bool load(bool instant = false);
-
-    /* Q_INVOKABLE virtual */ QString getFilePath() const;
-
-protected: // WLocalObject reimplementation
-    /* virtual */ WAbstractThreadAction * onLoad(const QString & path);
+private: // Variables
+    VDataLocal _local;
 
 private:
-    Q_DISABLE_COPY(DataLocal)
+    Q_DISABLE_COPY      (VControllerCore)
+    W_DECLARE_CONTROLLER(VControllerCore)
 };
 
-#endif // DATALOCAL_H
+#endif // VCONTROLLERCORE_H
