@@ -15,9 +15,9 @@ and the ALVR fork from [JackD83](https://github.com/JackD83) and [zarik5](https:
 Note: This is the streaming application, you'll need an ALVR client on your headset.
 
 References:
-- [ALVR polygraphene](https://github.com/polygraphene/ALVR)
-- [ALVR fork JackD83](https://github.com/polygraphene/ALVR)
-- [ALVRClient fork JackD83](https://github.com/JackD83/ALVRClient)
+- [Current ALVR fork JackD83](https://github.com/JackD83/ALVR)
+- [Current ALVRClient fork JackD83](https://github.com/JackD83/ALVRClient)
+- [Original ALVR by polygraphene](https://github.com/polygraphene/ALVR)
 - [3unjee devlog](https://github.com/3unjee/devlogs/blob/master/HEVR.md)
 
 ## Community
