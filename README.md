@@ -5,7 +5,7 @@ HEVR - High Efficiency Virtual Reality
 
 ** This is a work in progress and not yet released **
 
-HEVR is a Virtual Reality streaming application.<br>
+HEVR is a high efficiency VR streaming application.<br>
 Designed to play VR games from a standalone headset.<br>
 With a focus on low-latency, compatibily and simplicity.<br>
 
