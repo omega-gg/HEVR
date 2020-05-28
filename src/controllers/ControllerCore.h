@@ -14,23 +14,31 @@
 */
 //=================================================================================================
 
+#ifndef CONTROLLERCORE_H
+#define CONTROLLERCORE_H
+
 // Sk includes
-#include <WCoreApplication>
+#include <WController>
 
-// Core includes
-#include "ControllerCore.h"
+// Application includes
+#include "DataLocal.h"
 
-//-------------------------------------------------------------------------------------------------
-// Functions
-//-------------------------------------------------------------------------------------------------
+// Defines
+#define core ControllerCore::instance()
 
-int main(int argc, char * argv[])
+class ControllerCore : public WController
 {
-    QCoreApplication * application = WCoreApplication::create(argc, argv);
+    Q_OBJECT
 
-    if (application == NULL) return 0;
+private:
+    ControllerCore();
 
-    W_CREATE_CONTROLLER(ControllerCore);
+private: // Variables
+    DataLocal _local;
 
-    return application->exec();
-}
+private:
+    Q_DISABLE_COPY      (ControllerCore)
+    W_DECLARE_CONTROLLER(ControllerCore)
+};
+
+#endif // CONTROLLERCORE_H

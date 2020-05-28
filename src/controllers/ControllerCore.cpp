@@ -14,23 +14,15 @@
 */
 //=================================================================================================
 
-// Sk includes
-#include <WCoreApplication>
-
-// Core includes
 #include "ControllerCore.h"
 
+W_INIT_CONTROLLER(ControllerCore)
+
 //-------------------------------------------------------------------------------------------------
-// Functions
+// Ctor / dtor
 //-------------------------------------------------------------------------------------------------
 
-int main(int argc, char * argv[])
+ControllerCore::ControllerCore() : WController()
 {
-    QCoreApplication * application = WCoreApplication::create(argc, argv);
-
-    if (application == NULL) return 0;
-
-    W_CREATE_CONTROLLER(ControllerCore);
-
-    return application->exec();
+    qDebug("Welcome to HEVR");
 }

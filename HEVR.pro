@@ -10,6 +10,8 @@ lib {
     TEMPLATE = lib
 
     win32:CONFIG += dll
+
+    DEFINES += SK_HEVR_LIBRARY
 } else {
     DESTDIR = $$_PRO_FILE_PWD_/bin
 
@@ -47,6 +49,8 @@ include(src/thread/thread.pri)
 include(src/3rdparty/qtsingleapplication/qtsingleapplication.pri)
 
 INCLUDEPATH += $$SK/include/SkCore \
+               src/controllers \
+               src/io \
 
 # Windows dependency for ShellExecuteA
 win32-msvc*:LIBS += shell32.lib
@@ -59,3 +63,4 @@ OTHER_FILES += 3rdparty.sh \
                LICENSE.md \
                AUTHORS.md \
                .azure-pipelines.yml \
+               dist/changes/1.0.0.md \

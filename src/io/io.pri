@@ -10,9 +10,11 @@ HEADERS += $$SK_CORE/io/WAbstractLoader.h \
            $$SK_CORE/io/WFileWatcher_p.h \
            $$SK_CORE/io/WCache.h \
            $$SK_CORE/io/WCache_p.h \
+           src/io/DataLocal.h \
 
 SOURCES += $$SK_CORE/io/WAbstractLoader.cpp \
            $$SK_CORE/io/WLoaderNetwork.cpp \
            $$SK_CORE/io/WLocalObject.cpp \
            $$SK_CORE/io/WFileWatcher.cpp \
            $$SK_CORE/io/WCache.cpp \
+           src/io/DataLocal.cpp \
