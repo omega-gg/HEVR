@@ -1,4 +1,4 @@
-HEVR
+HEVR - High Efficiency Virtual Reality
 ---
 [![azure](https://dev.azure.com/bunjee/HEVR/_apis/build/status/omega-gg.HEVR)](https://dev.azure.com/bunjee/HEVR/_build)
 [![LGPLv3](https://img.shields.io/badge/License-LGPLv3-blue.svg)](https://www.gnu.org/licenses/lgpl.html)
