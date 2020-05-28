@@ -36,5 +36,14 @@
 
 /* Q_INVOKABLE virtual */ QString DataLocal::getFilePath() const
 {
-    return WControllerFile::applicationPath("config.xml");
+    return WControllerFile::applicationPath("data.xml");
+}
+
+//-------------------------------------------------------------------------------------------------
+// Protected WLocalObject reimplementation
+//-------------------------------------------------------------------------------------------------
+
+/* virtual */ WAbstractThreadAction * DataLocal::onLoad(const QString &)
+{
+    return NULL;
 }
