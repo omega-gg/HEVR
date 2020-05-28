@@ -120,13 +120,13 @@ if [ "$2" = "all" ]; then
 
     if [ $1 = "win32" -o $1 = "win64" -o $1 = "win32-msvc" -o $1 = "win64-msvc" ]; then
 
-        cp lib/*ALVR2.* deploy
+        cp lib/*HEVR.* deploy
 
     elif [ $1 = "macOS" ]; then
 
-        cp lib/libALVR2.dylib deploy
+        cp lib/libHEVR.dylib deploy
     else
-        cp lib/libALVR2.so deploy
+        cp lib/libHEVR.so deploy
     fi
 
     #----------------------------------------------------------------------------------------------
@@ -208,10 +208,10 @@ if [ "$2" = "clean" ]; then
 fi
 
 #--------------------------------------------------------------------------------------------------
-# Build ALVR2
+# Build HEVR
 #--------------------------------------------------------------------------------------------------
 
-echo "BUILDING ALVR2"
+echo "BUILDING HEVR"
 echo "--------------"
 
 export QT_SELECT=qt5
@@ -285,13 +285,13 @@ cd ..
 echo "--------------"
 
 #--------------------------------------------------------------------------------------------------
-# Deploying ALVR2
+# Deploying HEVR
 #--------------------------------------------------------------------------------------------------
 
 if [ "$2" = "deploy" ]; then
 
     echo ""
-    echo "DEPLOYING ALVR2"
+    echo "DEPLOYING HEVR"
     echo "---------------"
 
     sh deploy.sh $1

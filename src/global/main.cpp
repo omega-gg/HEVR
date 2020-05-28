@@ -1,10 +1,10 @@
 //=================================================================================================
 /*
-    Copyright (C) 2015-2020 ALVR2 authors. <http://omega.gg/ALVR2>
+    Copyright (C) 2015-2020 HEVR authors. <http://omega.gg/HEVR>
 
     Author: Benjamin Arnaud. <http://bunjee.me> <bunjee@omega.gg>
 
-    This file is part of ALVR2.
+    This file is part of HEVR.
 
     - GNU Lesser General Public License Usage:
     This file may be used under the terms of the GNU Lesser General Public License version 3 as
@@ -27,7 +27,7 @@ int main(int argc, char * argv[])
 
     if (application == NULL) return 0;
 
-    qDebug("Welcome to ALVR2");
+    qDebug("Welcome to HEVR");
 
     return application->exec();
 }

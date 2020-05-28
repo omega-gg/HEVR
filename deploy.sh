@@ -112,27 +112,27 @@ echo "-------------"
 echo ""
 
 #--------------------------------------------------------------------------------------------------
-# ALVR2
+# HEVR
 #--------------------------------------------------------------------------------------------------
 
-echo "COPYING ALVR2"
+echo "COPYING HEVR"
 
 if [ $os = "windows" ]; then
 
     if [ "$2" = "lib" ]; then
 
-        cp lib/*ALVR2.* deploy
+        cp lib/*HEVR.* deploy
     else
-        cp bin/ALVR2.exe deploy
+        cp bin/HEVR.exe deploy
     fi
 
 elif [ $1 = "macOS" ]; then
 
     if [ "$2" = "lib" ]; then
 
-        cp lib/libALVR2.dylib deploy
+        cp lib/libHEVR.dylib deploy
     else
-        cp bin/ALVR2 deploy
+        cp bin/HEVR deploy
 
         cd deploy
 
@@ -140,19 +140,19 @@ elif [ $1 = "macOS" ]; then
         # Qt
 
         install_name_tool -change @rpath/QtCore.framework/Versions/5/QtCore \
-                                  @loader_path/QtCore.dylib ALVR2
+                                  @loader_path/QtCore.dylib HEVR
 
         install_name_tool -change @rpath/QtNetwork.framework/Versions/5/QtNetwork \
-                                  @loader_path/QtNetwork.dylib ALVR2
+                                  @loader_path/QtNetwork.dylib HEVR
 
         install_name_tool -change @rpath/QtQml.framework/Versions/5/QtQml \
-                                  @loader_path/QtQml.dylib ALVR2
+                                  @loader_path/QtQml.dylib HEVR
 
         install_name_tool -change @rpath/QtXml.framework/Versions/5/QtXml \
-                                  @loader_path/QtXml.dylib ALVR2
+                                  @loader_path/QtXml.dylib HEVR
 
         install_name_tool -change @rpath/QtXmlPatterns.framework/Versions/5/QtXmlPatterns \
-                                  @loader_path/QtXmlPatterns.dylib ALVR2
+                                  @loader_path/QtXmlPatterns.dylib HEVR
 
         #----------------------------------------------------------------------------------------------
 
@@ -163,8 +163,8 @@ elif [ $1 = "linux" ]; then
 
     if [ "$2" = "lib" ]; then
 
-        cp lib/libALVR2.so deploy
+        cp lib/libHEVR.so deploy
     else
-        cp bin/ALVR2 deploy
+        cp bin/HEVR deploy
     fi
 fi

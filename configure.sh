@@ -88,7 +88,7 @@ fi
 # MinGW
 #--------------------------------------------------------------------------------------------------
 
-echo "CONFIGURING ALVR2"
+echo "CONFIGURING HEVR"
 
 if [ $compiler = "mingw" ]; then
 

@@ -1,11 +1,11 @@
-ALVR2
+HEVR
 ---
-[![azure](https://dev.azure.com/bunjee/ALVR2/_apis/build/status/omega-gg.ALVR2)](https://dev.azure.com/bunjee/ALVR2/_build)
+[![azure](https://dev.azure.com/bunjee/HEVR/_apis/build/status/omega-gg.HEVR)](https://dev.azure.com/bunjee/HEVR/_build)
 [![LGPLv3](https://img.shields.io/badge/License-LGPLv3-blue.svg)](https://www.gnu.org/licenses/lgpl.html)
 
 ** This is a work in progress and not yet released **
 
-ALVR2 is a Virtual Reality streaming application.<br>
+HEVR is a Virtual Reality streaming application.<br>
 Designed to play VR games from a standalone headset.<br>
 With a focus on low-latency, compatibily and simplicity.<br>
 
@@ -18,7 +18,7 @@ References:
 - [ALVR polygraphene](https://github.com/polygraphene/ALVR)
 - [ALVR fork JackD83](https://github.com/polygraphene/ALVR)
 - [ALVRClient fork JackD83](https://github.com/JackD83/ALVRClient)
-- [3unjee devlog](https://github.com/3unjee/devlogs/blob/master/ALVR2.md)
+- [3unjee devlog](https://github.com/3unjee/devlogs/blob/master/HEVR.md)
 
 ## Community
 
@@ -27,7 +27,7 @@ References:
 
 ## Technology
 
-ALVR2 is built in C++ with the [Qt framework](https://github.com/qtproject) and [Sky kit](http://omega.gg/Sky/sources).
+HEVR is built in C++ with the [Qt framework](https://github.com/qtproject) and [Sky kit](http://omega.gg/Sky/sources).
 
 ## Platforms
 
@@ -57,15 +57,15 @@ Recommended IDE:
 
 ## Quickstart
 
-You can configure and build ALVR2 with a single line:
+You can configure and build HEVR with a single line:
 
     sh build.sh <win32 | win64 | win32-msvc | win64-msvc | macOS | linux> all
 
 For instance you would do that for Windows 64 bit:
 
     * open Git Bash *
-    git clone https://github.com/omega-gg/ALVR2.git
-    cd ALVR2
+    git clone https://github.com/omega-gg/HEVR.git
+    cd HEVR
     sh build.sh win64 all
 
 That's a convenient way to configure and build everything the first time.
@@ -97,7 +97,7 @@ Deploy the application and its dependencies:
 
 ## License
 
-Copyright (C) 2015 - 2020 ALVR2 authors | http://omega.gg/ALVR2
+Copyright (C) 2015 - 2020 HEVR authors | http://omega.gg/HEVR
 
 ### Authors
 
@@ -105,7 +105,7 @@ Copyright (C) 2015 - 2020 ALVR2 authors | http://omega.gg/ALVR2
 
 ### GNU Lesser General Public License Usage
 
-ALVR2 may be used under the terms of the GNU Lesser General Public License version 3 as published
+HEVR may be used under the terms of the GNU Lesser General Public License version 3 as published
 by the Free Software Foundation and appearing in the LICENSE.md file included in the packaging of
 this file. Please review the following information to ensure the GNU Lesser General Public License
 requirements will be met: https://www.gnu.org/licenses/lgpl.html.

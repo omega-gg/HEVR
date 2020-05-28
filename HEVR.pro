@@ -2,7 +2,7 @@ SK = $$_PRO_FILE_PWD_/../Sky
 
 SK_CORE = $$SK/src/SkCore/src
 
-TARGET = ALVR2
+TARGET = HEVR
 
 lib {
     DESTDIR = $$_PRO_FILE_PWD_/lib

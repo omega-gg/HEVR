@@ -10,9 +10,9 @@ jobs:
   - bash: |
       sh build.sh win32 all
       cd deploy
-      7z a ../ALVR2.zip *
-  - publish: $(System.DefaultWorkingDirectory)/ALVR2.zip
-    artifact: ALVR2-win32
+      7z a ../HEVR.zip *
+  - publish: $(System.DefaultWorkingDirectory)/HEVR.zip
+    artifact: HEVR-win32
 
 - job: win64
   pool:
@@ -21,9 +21,9 @@ jobs:
   - bash: |
       sh build.sh win64 all
       cd deploy
-      7z a ../ALVR2.zip *
-  - publish: $(System.DefaultWorkingDirectory)/ALVR2.zip
-    artifact: ALVR2-win64
+      7z a ../HEVR.zip *
+  - publish: $(System.DefaultWorkingDirectory)/HEVR.zip
+    artifact: HEVR-win64
 
 #--------------------------------------------------------------------------------------------------
 
@@ -34,9 +34,9 @@ jobs:
   - bash: |
       sh build.sh win32-msvc all
       cd deploy
-      7z a ../ALVR2.zip *
-  - publish: $(System.DefaultWorkingDirectory)/ALVR2.zip
-    artifact: ALVR2-win32-msvc
+      7z a ../HEVR.zip *
+  - publish: $(System.DefaultWorkingDirectory)/HEVR.zip
+    artifact: HEVR-win32-msvc
 
 - job: win64_msvc
   pool:
@@ -45,9 +45,9 @@ jobs:
   - bash: |
       sh build.sh win64-msvc all
       cd deploy
-      7z a ../ALVR2.zip *
-  - publish: $(System.DefaultWorkingDirectory)/ALVR2.zip
-    artifact: ALVR2-win64-msvc
+      7z a ../HEVR.zip *
+  - publish: $(System.DefaultWorkingDirectory)/HEVR.zip
+    artifact: HEVR-win64-msvc
 
 #--------------------------------------------------------------------------------------------------
 # macOS
@@ -60,9 +60,9 @@ jobs:
   - bash: |
       sh build.sh macOS all
       cd deploy
-      zip -rq ../ALVR2.zip *
-  - publish: $(System.DefaultWorkingDirectory)/ALVR2.zip
-    artifact: ALVR2-macOS
+      zip -rq ../HEVR.zip *
+  - publish: $(System.DefaultWorkingDirectory)/HEVR.zip
+    artifact: HEVR-macOS
 
 #--------------------------------------------------------------------------------------------------
 # Linux
@@ -73,15 +73,15 @@ jobs:
     vmImage: "ubuntu-latest"
   steps:
   - bash: |
-      docker run -d --name ubuntu -v $PWD:/ALVR2 i386/ubuntu:18.04 tail -f /dev/null
-      docker exec -t ubuntu bash -c "cd /ALVR2;
+      docker run -d --name ubuntu -v $PWD:/HEVR i386/ubuntu:18.04 tail -f /dev/null
+      docker exec -t ubuntu bash -c "cd /HEVR;
                                      apt-get update;
                                      apt-get -y install sudo curl zip git;
                                      sh build.sh linux all;
                                      cd deploy;
-                                     zip -rq ../ALVR2.zip *"
-  - publish: $(System.DefaultWorkingDirectory)/ALVR2.zip
-    artifact: ALVR2-linux32
+                                     zip -rq ../HEVR.zip *"
+  - publish: $(System.DefaultWorkingDirectory)/HEVR.zip
+    artifact: HEVR-linux32
 
 #--------------------------------------------------------------------------------------------------
 
@@ -90,12 +90,12 @@ jobs:
     vmImage: "ubuntu-latest"
   steps:
   - bash: |
-      docker run -d --name ubuntu -v $PWD:/ALVR2 amd64/ubuntu:18.04 tail -f /dev/null
-      docker exec -t ubuntu bash -c "cd /ALVR2;
+      docker run -d --name ubuntu -v $PWD:/HEVR amd64/ubuntu:18.04 tail -f /dev/null
+      docker exec -t ubuntu bash -c "cd /HEVR;
                                      apt-get update;
                                      apt-get -y install sudo curl zip git;
                                      sh build.sh linux all;
                                      cd deploy;
-                                     zip -rq ../ALVR2.zip *"
-  - publish: $(System.DefaultWorkingDirectory)/ALVR2.zip
-    artifact: ALVR2-linux64
+                                     zip -rq ../HEVR.zip *"
+  - publish: $(System.DefaultWorkingDirectory)/HEVR.zip
+    artifact: HEVR-linux64
