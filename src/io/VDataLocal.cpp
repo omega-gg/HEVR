@@ -16,14 +16,30 @@
 
 #include "VDataLocal.h"
 
+#ifndef HEVR_NO_DATALOCAL
+
 // Sk includes
 #include <WControllerFile>
 
-//=================================================================================================
-// VDataLocal
-//=================================================================================================
+//-------------------------------------------------------------------------------------------------
+// Private
+//-------------------------------------------------------------------------------------------------
 
-/* explicit */ VDataLocal::VDataLocal(QObject * parent) : WLocalObject(parent) {}
+#include "VDataLocal_p.h"
+
+VDataLocalPrivate::VDataLocalPrivate(VDataLocal * p) : WLocalObjectPrivate(p) {}
+
+void VDataLocalPrivate::init() {}
+
+//-------------------------------------------------------------------------------------------------
+// Ctor / dtor
+//-------------------------------------------------------------------------------------------------
+
+/* explicit */ VDataLocal::VDataLocal(QObject * parent)
+    : WLocalObject(new VDataLocalPrivate(this), parent)
+{
+    Q_D(VDataLocal); d->init();
+}
 
 //-------------------------------------------------------------------------------------------------
 // WLocalObject reimplementation
@@ -47,3 +63,5 @@
 {
     return NULL;
 }
+
+#endif // HEVR_NO_DATALOCAL

@@ -14,38 +14,37 @@
 */
 //=================================================================================================
 
-#ifndef VDATALOCAL_H
-#define VDATALOCAL_H
+#ifndef VDATALOCAL_P_H
+#define VDATALOCAL_P_H
 
-// Sk includes
-#include <WLocalObject>
+/*  W A R N I N G
+    -------------
+
+    This file is not part of the HEVR API. It exists purely as an
+    implementation detail. This header file may change from version to
+    version without notice, or even be removed.
+
+    We mean it.
+*/
 
 // Hevr includes
 #include <Hevr>
 
+// Private includes
+#include <private/WLocalObject_p>
+
 #ifndef HEVR_NO_DATALOCAL
 
-// Forward declarations
-class VDataLocalPrivate;
-
-class HEVR_EXPORT VDataLocal : public WLocalObject
+class HEVR_EXPORT VDataLocalPrivate : public WLocalObjectPrivate
 {
-    Q_OBJECT
-
 public:
-    explicit VDataLocal(QObject * parent = NULL);
+    VDataLocalPrivate(VDataLocal * p);
 
-public: // WLocalObject reimplementation
-    /* Q_INVOKABLE virtual */ bool load(bool instant = false);
+    void init();
 
-    /* Q_INVOKABLE virtual */ QString getFilePath() const;
-
-protected: // WLocalObject reimplementation
-    /* virtual */ WAbstractThreadAction * onLoad(const QString & path);
-
-private:
-    W_DECLARE_PRIVATE(VDataLocal)
+protected:
+    W_DECLARE_PUBLIC(VDataLocal)
 };
 
 #endif // HEVR_NO_DATALOCAL
-#endif // VDATALOCAL_H
+#endif // VDATALOCAL_P_H

@@ -11,6 +11,7 @@ HEADERS += $$SK_CORE/io/WAbstractLoader.h \
            $$SK_CORE/io/WCache.h \
            $$SK_CORE/io/WCache_p.h \
            src/io/VDataLocal.h \
+           src/io/VDataLocal_p.h \
 
 SOURCES += $$SK_CORE/io/WAbstractLoader.cpp \
            $$SK_CORE/io/WLoaderNetwork.cpp \

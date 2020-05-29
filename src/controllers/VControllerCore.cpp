@@ -48,5 +48,4 @@ VControllerCore::VControllerCore() : WController(new VControllerCorePrivate(this
     Q_D(VControllerCore); d->init();
 }
 
-
 #endif // HEVR_NO_CONTROLLERCORE
