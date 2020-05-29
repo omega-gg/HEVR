@@ -16,9 +16,24 @@
 
 #include "VControllerCore.h"
 
+// Qt includes
+#ifndef SK_DEPLOY
+#include <QDir>
+#endif
+
+// Sk includes
+#include <WControllerFile>
+
 #ifndef HEVR_NO_CONTROLLERCORE
 
 W_INIT_CONTROLLER(VControllerCore)
+
+//-------------------------------------------------------------------------------------------------
+// Static variables
+
+#ifndef SK_DEPLOY
+static const QString PATH_STORAGE = "/storage";
+#endif
 
 //-------------------------------------------------------------------------------------------------
 // Private
@@ -30,7 +45,33 @@ VControllerCorePrivate::VControllerCorePrivate(VControllerCore * p) : WControlle
 
 void VControllerCorePrivate::init()
 {
+#ifdef SK_DEPLOY
+    QString path = QStandardPaths::writableLocation(QStandardPaths::DataLocation);
+
+    wControllerFile->setPathStorage(QDir::fromNativeSeparators(path));
+#else
+    QString path = QDir::currentPath() + PATH_STORAGE;
+
+    wControllerFile->setPathStorage(path);
+#endif
+
+    //---------------------------------------------------------------------------------------------
+    // Log
+
+    wControllerFile->initMessageHandler();
+
     qDebug("Welcome to HEVR");
+
+    qDebug("Path storage: %s", path.C_STR);
+    qDebug("Path log:     %s", wControllerFile->pathLog().C_STR);
+    qDebug("Path config:  %s", local.getFilePath().C_STR);
+
+    //---------------------------------------------------------------------------------------------
+    // DataLocal
+
+    local.setSaveEnabled(true);
+
+    local.load(true);
 }
 
 //-------------------------------------------------------------------------------------------------

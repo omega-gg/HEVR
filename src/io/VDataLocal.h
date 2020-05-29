@@ -36,8 +36,6 @@ public:
     explicit VDataLocal(QObject * parent = NULL);
 
 public: // WLocalObject reimplementation
-    /* Q_INVOKABLE virtual */ bool load(bool instant = false);
-
     /* Q_INVOKABLE virtual */ QString getFilePath() const;
 
 protected: // WLocalObject reimplementation
