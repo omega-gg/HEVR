@@ -71,7 +71,12 @@ void VControllerCorePrivate::init()
 
     local.setSaveEnabled(true);
 
-    local.load(true);
+    if (local.load(true) == false)
+    {
+        qDebug("CREATE data.xml");
+
+        local.save();
+    }
 }
 
 //-------------------------------------------------------------------------------------------------

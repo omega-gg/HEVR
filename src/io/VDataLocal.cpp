@@ -31,21 +31,18 @@
 using namespace QtLP_Private;
 
 //=================================================================================================
-// VDataLocalRead and VDataLocalReadReply
+// VDataLocalWrite
 //=================================================================================================
 
-class VDataLocalRead : public WAbstractThreadAction
+class VDataLocalWrite : public WAbstractThreadAction
 {
     Q_OBJECT
 
 public:
-    VDataLocalRead(VDataLocalPrivate * data)
+    VDataLocalWrite(VDataLocalPrivate * data)
     {
         this->data = data;
     }
-
-protected: // WAbstractThreadAction reimplementation
-    /* virtual */ WAbstractThreadReply * createReply() const;
 
 protected: // WAbstractThreadAction implementation
     /* virtual */ bool run();
@@ -54,6 +51,51 @@ public: // Variables
     VDataLocalPrivate * data;
 
     QString path;
+};
+
+//-------------------------------------------------------------------------------------------------
+
+/* virtual */ bool VDataLocalWrite::run()
+{
+    QtLockedFile file(path);
+
+    if (WControllerFile::tryUnlock(file) == false)
+    {
+        qWarning("VDataLocalWrite::run: File is locked %s.", path.C_STR);
+
+        return false;
+    }
+
+    if (file.open(QIODevice::WriteOnly) == false)
+    {
+        qWarning("VDataLocalWrite::run: Failed to open file %s.", path.C_STR);
+
+        return false;
+    }
+
+    file.lock(QtLockedFile::ReadLock);
+
+    file.unlock();
+
+    return true;
+}
+
+//=================================================================================================
+// VDataLocalRead and VDataLocalReadReply
+//=================================================================================================
+
+class VDataLocalRead : public VDataLocalWrite
+{
+    Q_OBJECT
+
+public:
+    VDataLocalRead(VDataLocalPrivate * data) : VDataLocalWrite(data) {}
+
+protected: // VDataLocalWrite reimplementation
+    /* virtual */ WAbstractThreadReply * createReply() const;
+
+protected: // VDataLocalWrite reimplementation
+    /* virtual */ bool run();
 };
 
 //-------------------------------------------------------------------------------------------------
@@ -90,14 +132,14 @@ public: // Variables
 
     if (WControllerFile::tryUnlock(file) == false)
     {
-        qWarning("WLibraryFolderRead::run: File is locked %s.", path.C_STR);
+        qWarning("VDataLocalRead::run: File is locked %s.", path.C_STR);
 
         return false;
     }
 
     if (file.open(QIODevice::ReadOnly) == false)
     {
-        qWarning("WLibraryFolderRead::run: Failed to open file %s.", path.C_STR);
+        qWarning("VDataLocalRead::run: Failed to open file %s.", path.C_STR);
 
         return false;
     }
@@ -150,6 +192,17 @@ void VDataLocalPrivate::init() {}
 //-------------------------------------------------------------------------------------------------
 // Protected WLocalObject reimplementation
 //-------------------------------------------------------------------------------------------------
+
+/* virtual */ WAbstractThreadAction * VDataLocal::onSave(const QString & path)
+{
+    Q_D(VDataLocal);
+
+    VDataLocalWrite * action = new VDataLocalWrite(d);
+
+    action->path = path;
+
+    return action;
+}
 
 /* virtual */ WAbstractThreadAction * VDataLocal::onLoad(const QString & path)
 {

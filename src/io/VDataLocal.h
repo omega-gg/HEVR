@@ -39,6 +39,7 @@ public: // WLocalObject reimplementation
     /* Q_INVOKABLE virtual */ QString getFilePath() const;
 
 protected: // WLocalObject reimplementation
+    /* virtual */ WAbstractThreadAction * onSave(const QString & path);
     /* virtual */ WAbstractThreadAction * onLoad(const QString & path);
 
 private:
