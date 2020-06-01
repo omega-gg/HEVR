@@ -14,37 +14,16 @@
 */
 //=================================================================================================
 
-#ifndef VDATALOCAL_H
-#define VDATALOCAL_H
+#ifndef OPENVR_H_
+#define OPENVR_H_
 
-// Sk includes
-#include <WLocalObject>
+//-------------------------------------------------------------------------------------------------
+// Defines
 
-// Hevr includes
-#include <Hevr>
+#if defined(OPENVR_LIBRARY)
+#   define OPENVR_EXPORT Q_DECL_EXPORT
+#else
+#   define OPENVR_EXPORT Q_DECL_IMPORT
+#endif
 
-#ifndef HEVR_NO_DATALOCAL
-
-// Forward declarations
-class VDataLocalPrivate;
-
-class HEVR_EXPORT VDataLocal : public WLocalObject
-{
-    Q_OBJECT
-
-public:
-    explicit VDataLocal(QObject * parent = NULL);
-
-public: // WLocalObject reimplementation
-    /* Q_INVOKABLE virtual */ QString getFilePath() const;
-
-protected: // WLocalObject reimplementation
-    /* virtual */ WAbstractThreadAction * onSave(const QString & path);
-    /* virtual */ WAbstractThreadAction * onLoad(const QString & path);
-
-private:
-    W_DECLARE_PRIVATE(VDataLocal)
-};
-
-#endif // HEVR_NO_DATALOCAL
-#endif // VDATALOCAL_H
+#endif // OPENVR_H_

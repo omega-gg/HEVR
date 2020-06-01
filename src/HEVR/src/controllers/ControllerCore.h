@@ -20,18 +20,13 @@
 // Sk includes
 #include <WController>
 
-// Hevr includes
-#include <Hevr>
-
-#ifndef HEVR_NO_CONTROLLERCORE
-
 // Forward declarations
 class VControllerCorePrivate;
 
 // Defines
 #define core VControllerCore::instance()
 
-class HEVR_EXPORT VControllerCore : public WController
+class VControllerCore : public WController
 {
     Q_OBJECT
 
@@ -46,5 +41,4 @@ private:
     W_DECLARE_CONTROLLER(VControllerCore)
 };
 
-#endif // HEVR_NO_CONTROLLERCORE
 #endif // VCONTROLLERCORE_H

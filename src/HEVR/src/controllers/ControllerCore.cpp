@@ -24,8 +24,6 @@
 // Sk includes
 #include <WControllerFile>
 
-#ifndef HEVR_NO_CONTROLLERCORE
-
 W_INIT_CONTROLLER(VControllerCore)
 
 //-------------------------------------------------------------------------------------------------
@@ -93,5 +91,3 @@ VControllerCore::VControllerCore() : WController(new VControllerCorePrivate(this
 {
     Q_D(VControllerCore); d->init();
 }
-
-#endif // HEVR_NO_CONTROLLERCORE

@@ -14,16 +14,37 @@
 */
 //=================================================================================================
 
-#ifndef HEVR_H_
-#define HEVR_H_
+#ifndef VCONTROLLERCORE_H
+#define VCONTROLLERCORE_H
 
-//-------------------------------------------------------------------------------------------------
+// Sk includes
+#include <WController>
+
+// OpenVR includes
+#include <OpenVR>
+
+#ifndef OPENVR_NO_CONTROLLERCORE
+
+// Forward declarations
+class VControllerCorePrivate;
+
 // Defines
+#define core VControllerCore::instance()
 
-#if defined(HEVR_LIBRARY)
-#   define HEVR_EXPORT Q_DECL_EXPORT
-#else
-#   define HEVR_EXPORT Q_DECL_IMPORT
-#endif
+class OPENVR_EXPORT VControllerCore : public WController
+{
+    Q_OBJECT
 
-#endif // HEVR_H_
+private:
+    VControllerCore();
+
+protected: // Initialize
+    /* virtual */ void init();
+
+private:
+    W_DECLARE_PRIVATE   (VControllerCore)
+    W_DECLARE_CONTROLLER(VControllerCore)
+};
+
+#endif // OPENVR_NO_CONTROLLERCORE
+#endif // VCONTROLLERCORE_H

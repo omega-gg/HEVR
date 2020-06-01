@@ -27,15 +27,15 @@
     We mean it.
 */
 
-// Hevr includes
+// OpenVR includes
 #include <VDataLocal>
 
 // Private includes
 #include <private/WController_p>
 
-#ifndef HEVR_NO_CONTROLLERCORE
+#ifndef OPENVR_NO_CONTROLLERCORE
 
-class HEVR_EXPORT VControllerCorePrivate : public WControllerPrivate
+class OPENVR_EXPORT VControllerCorePrivate : public WControllerPrivate
 {
 public:
     VControllerCorePrivate(VControllerCore * p);
@@ -49,5 +49,5 @@ protected:
     W_DECLARE_PUBLIC(VControllerCore)
 };
 
-#endif // HEVR_NO_CONTROLLERCORE
+#endif // OPENVR_NO_CONTROLLERCORE
 #endif // VCONTROLLERCORE_P_H

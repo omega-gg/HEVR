@@ -16,8 +16,6 @@
 
 #include "VDataLocal.h"
 
-#ifndef HEVR_NO_DATALOCAL
-
 // Qt includes
 #include <qtlockedfile>
 
@@ -214,7 +212,3 @@ void VDataLocalPrivate::init() {}
 
     return action;
 }
-
-#endif // HEVR_NO_DATALOCAL
-
-#include "VDataLocal.moc"
