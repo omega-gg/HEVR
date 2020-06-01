@@ -2,9 +2,11 @@ SK = $$_PRO_FILE_PWD_/../../../Sky
 
 SK_CORE = $$SK/src/SkCore/src
 
+HEVR=$$_PRO_FILE_PWD_/../..
+
 TARGET = HEVR
 
-DESTDIR = $$_PRO_FILE_PWD_/bin
+DESTDIR = $$HEVR/bin
 
 CONFIG += console
 
@@ -42,8 +44,7 @@ include(src/thread/thread.pri)
 
 include(src/3rdparty/qtsingleapplication/qtsingleapplication.pri)
 
-INCLUDEPATH += $$SK/include/SkCore \
-               include/HEVR \
+INCLUDEPATH += $$SK/include/SkCore
 
 # Windows dependency for ShellExecuteA
 win32-msvc*:LIBS += shell32.lib

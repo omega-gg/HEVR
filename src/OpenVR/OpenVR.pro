@@ -2,9 +2,11 @@ SK = $$_PRO_FILE_PWD_/../../../Sky
 
 SK_CORE = $$SK/src/SkCore/src
 
+HEVR=$$_PRO_FILE_PWD_/../..
+
 TARGET = OpenVR
 
-DESTDIR = $$_PRO_FILE_PWD_/lib
+DESTDIR = $$HEVR/lib
 
 TEMPLATE = lib
 
@@ -43,7 +45,7 @@ include(src/thread/thread.pri)
 include(src/3rdparty/qtsingleapplication/qtsingleapplication.pri)
 
 INCLUDEPATH += $$SK/include/SkCore \
-               $$_PRO_FILE_PWD_/../../include/OpenVR \
+               $$HEVR/include/OpenVR \
 
 # Windows dependency for ShellExecuteA
 win32-msvc*:LIBS += shell32.lib
