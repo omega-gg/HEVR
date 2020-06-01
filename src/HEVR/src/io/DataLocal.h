@@ -14,31 +14,24 @@
 */
 //=================================================================================================
 
-#ifndef VDATALOCAL_H
-#define VDATALOCAL_H
+#ifndef DATALOCAL_H
+#define DATALOCAL_H
 
 // Sk includes
 #include <WLocalObject>
 
-// Forward declarations
-class VDataLocalPrivate;
-
-class VDataLocal : public WLocalObject
+class DataLocal : public WLocalObject
 {
     Q_OBJECT
 
 public:
-    explicit VDataLocal(QObject * parent = NULL);
+    explicit DataLocal(QObject * parent = NULL);
 
 public: // WLocalObject reimplementation
     /* Q_INVOKABLE virtual */ QString getFilePath() const;
 
-protected: // WLocalObject reimplementation
-    /* virtual */ WAbstractThreadAction * onSave(const QString & path);
-    /* virtual */ WAbstractThreadAction * onLoad(const QString & path);
-
 private:
-    W_DECLARE_PRIVATE(VDataLocal)
+    Q_DISABLE_COPY(DataLocal)
 };
 
-#endif // VDATALOCAL_H
+#endif // DATALOCAL_H

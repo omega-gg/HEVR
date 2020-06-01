@@ -14,31 +14,31 @@
 */
 //=================================================================================================
 
-#ifndef VCONTROLLERCORE_H
-#define VCONTROLLERCORE_H
+#ifndef CONTROLLERCORE_H
+#define CONTROLLERCORE_H
 
 // Sk includes
 #include <WController>
 
-// Forward declarations
-class VControllerCorePrivate;
+// HEVR includes
+#include <DataLocal>
 
 // Defines
-#define core VControllerCore::instance()
+#define core ControllerCore::instance()
 
-class VControllerCore : public WController
+class ControllerCore : public WController
 {
     Q_OBJECT
 
 private:
-    VControllerCore();
+    ControllerCore();
 
-protected: // Initialize
-    /* virtual */ void init();
+private: // Variables
+    DataLocal _local;
 
 private:
-    W_DECLARE_PRIVATE   (VControllerCore)
-    W_DECLARE_CONTROLLER(VControllerCore)
+    Q_DISABLE_COPY      (ControllerCore)
+    W_DECLARE_CONTROLLER(ControllerCore)
 };
 
-#endif // VCONTROLLERCORE_H
+#endif // CONTROLLERCORE_H

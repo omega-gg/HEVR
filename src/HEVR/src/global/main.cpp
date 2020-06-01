@@ -18,7 +18,7 @@
 #include <WCoreApplication>
 
 // HEVR includes
-#include <VControllerCore>
+#include <ControllerCore>
 
 //-------------------------------------------------------------------------------------------------
 // Functions
@@ -30,7 +30,7 @@ int main(int argc, char * argv[])
 
     if (application == NULL) return 0;
 
-    W_CREATE_CONTROLLER(VControllerCore);
+    W_CREATE_CONTROLLER(ControllerCore);
 
     return application->exec();
 }

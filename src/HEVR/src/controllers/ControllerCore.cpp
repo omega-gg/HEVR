@@ -14,7 +14,7 @@
 */
 //=================================================================================================
 
-#include "VControllerCore.h"
+#include "ControllerCore.h"
 
 // Qt includes
 #ifndef SK_DEPLOY
@@ -24,7 +24,7 @@
 // Sk includes
 #include <WControllerFile>
 
-W_INIT_CONTROLLER(VControllerCore)
+W_INIT_CONTROLLER(ControllerCore)
 
 //-------------------------------------------------------------------------------------------------
 // Static variables
@@ -34,15 +34,12 @@ static const QString PATH_STORAGE = "/storage";
 #endif
 
 //-------------------------------------------------------------------------------------------------
-// Private
+// Ctor / dtor
 //-------------------------------------------------------------------------------------------------
 
-#include "VControllerCore_p.h"
-
-VControllerCorePrivate::VControllerCorePrivate(VControllerCore * p) : WControllerPrivate(p) {}
-
-void VControllerCorePrivate::init()
+ControllerCore::ControllerCore() : WController()
 {
+
 #ifdef SK_DEPLOY
     QString path = QStandardPaths::writableLocation(QStandardPaths::DataLocation);
 
@@ -62,32 +59,17 @@ void VControllerCorePrivate::init()
 
     qDebug("Path storage: %s", path.C_STR);
     qDebug("Path log:     %s", wControllerFile->pathLog().C_STR);
-    qDebug("Path config:  %s", local.getFilePath().C_STR);
+    qDebug("Path config:  %s", _local.getFilePath().C_STR);
 
     //---------------------------------------------------------------------------------------------
     // DataLocal
 
-    local.setSaveEnabled(true);
+    _local.setSaveEnabled(true);
 
-    if (local.load(true) == false)
+    if (_local.load(true) == false)
     {
         qDebug("CREATE data.xml");
 
-        local.save();
+        _local.save();
     }
-}
-
-//-------------------------------------------------------------------------------------------------
-// Ctor / dtor
-//-------------------------------------------------------------------------------------------------
-
-VControllerCore::VControllerCore() : WController(new VControllerCorePrivate(this)) {}
-
-//-------------------------------------------------------------------------------------------------
-// Initialize
-//-------------------------------------------------------------------------------------------------
-
-/* virtual */ void VControllerCore::init()
-{
-    Q_D(VControllerCore); d->init();
 }
