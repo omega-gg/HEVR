@@ -59,7 +59,7 @@ Recommended IDE:
 
 You can configure and build HEVR with a single line:
 
-    sh build.sh <win32 | win64 | win32-msvc | win64-msvc | macOS | linux> all
+    sh build.sh <win32 | win64 | win32-msvc | win64-msvc | macOS | linux | android> all
 
 For instance you would do that for Windows 64 bit:
 
@@ -78,22 +78,22 @@ Alternatively, you can run each step of the build yourself by calling the follow
 
 Install the dependencies:
 
-    sh 3rdparty.sh <win32 | win64 | win32-msvc | win64-msvc | macOS | linux>
+    sh 3rdparty.sh <win32 | win64 | win32-msvc | win64-msvc | macOS | linux | android>
 
 Configure the build:
 
-    sh configure.sh <win32 | win64 | win32-msvc | win64-msvc | macOS | linux>
+    sh configure.sh <win32 | win64 | win32-msvc | win64-msvc | macOS | linux | android>
                     [sky | clean]
 
 Build the application:
 
-    sh build.sh <win32 | win64 | win32-msvc | win64-msvc | macOS | linux>
-                [all | lib | deploy | clean]
+    sh build.sh <win32 | win64 | win32-msvc | win64-msvc | macOS | linux | android>
+                [all | deploy | clean]
 
 Deploy the application and its dependencies:
 
-    sh deploy.sh <win32 | win64 | win32-msvc | win64-msvc | macOS | linux>
-                 [lib | clean]
+    sh deploy.sh <win32 | win64 | win32-msvc | win64-msvc | macOS | linux | android>
+                 [clean]
 
 ## License
 

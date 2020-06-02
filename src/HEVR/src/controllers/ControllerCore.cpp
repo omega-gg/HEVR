@@ -17,12 +17,24 @@
 #include "ControllerCore.h"
 
 // Qt includes
-#ifndef SK_DEPLOY
 #include <QDir>
+#if defined(SK_DEPLOY) && defined(QT_LATEST)
+#include <QStandardPaths>
 #endif
 
 // Sk includes
 #include <WControllerFile>
+#include <WControllerDeclarative>
+#include <WApplication>
+#include <WView>
+#include <WViewResizer>
+#include <WViewDrag>
+#include <WWindow>
+#include <WDeclarativeApplication>
+#include <WDeclarativeBorders>
+#include <WDeclarativeImage>
+#include <WDeclarativeImageSvg>
+#include <WImageColorFilter>
 
 W_INIT_CONTROLLER(ControllerCore)
 
@@ -72,4 +84,44 @@ ControllerCore::ControllerCore() : WController()
 
         _local.save();
     }
+
+    //---------------------------------------------------------------------------------------------
+    // QML
+    //---------------------------------------------------------------------------------------------
+
+    qmlRegisterUncreatableType<WControllerDeclarative>("Sky", 1,0, "Sk", "Sk is not creatable");
+
+    qmlRegisterType<WDeclarativeApplication>("Sky", 1,0, "Application");
+
+    qmlRegisterUncreatableType<WView>("Sky", 1,0, "View", "View is abstract");
+
+    qmlRegisterType<WViewResizer>("Sky", 1,0, "ViewResizer");
+    qmlRegisterType<WViewDrag>   ("Sky", 1,0, "ViewDrag");
+
+    qmlRegisterType<WWindow>("Sky", 1,0, "BaseWindow");
+
+    qmlRegisterType<WImageColorFilter>("Sky", 1,0, "ImageColorFilter");
+
+    qmlRegisterType<WDeclarativeBorders>("Sky", 1,0, "Borders");
+
+    qmlRegisterType<WDeclarativeMouseArea>("Sky", 1,0, "MouseArea");
+
+    qmlRegisterType<WDeclarativeGradient>    ("Sky", 1,0, "ScaleGradient");
+    qmlRegisterType<WDeclarativeGradientStop>("Sky", 1,0, "ScaleGradientStop");
+
+    qmlRegisterType<WDeclarativeImage>     ("Sky", 1,0, "Image");
+    qmlRegisterType<WDeclarativeImageScale>("Sky", 1,0, "ImageScale");
+    qmlRegisterType<WDeclarativeImageSvg>  ("Sky", 1,0, "ImageSvg");
+
+#ifdef QT_4
+    qmlRegisterType<WDeclarativeImageSvgScale>("Sky", 1,0, "ImageSvgScale");
+#endif
+
+    qmlRegisterUncreatableType<WDeclarativeKeyEvent>("Sky", 1,0, "DeclarativeKeyEvent",
+                                                     "DeclarativeKeyEvent is not creatable");
+
+    //---------------------------------------------------------------------------------------------
+    // Context
+
+    wControllerDeclarative->setContextProperty("sk", sk);
 }

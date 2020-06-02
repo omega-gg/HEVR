@@ -14,29 +14,40 @@
 */
 //=================================================================================================
 
-// Sk includes
-#include <WApplication>
+import QtQuick 1.0
+import Sky     1.0
 
-// HEVR includes
-#include <ControllerCore>
-
-//-------------------------------------------------------------------------------------------------
-// Functions
-//-------------------------------------------------------------------------------------------------
-
-int main(int argc, char * argv[])
+Application
 {
-    QApplication * application = WApplication::create(argc, argv);
+    id: application
 
-    if (application == NULL) return 0;
+    //---------------------------------------------------------------------------------------------
+    // Childs
+    //---------------------------------------------------------------------------------------------
 
-    W_CREATE_CONTROLLER(ControllerCore);
+    Window
+    {
+        id: window
 
-#ifndef SK_DEPLOY
-    sk->setQrc(false);
-#endif
+        st: Style { id: st }
 
-    sk->startScript();
+        onKeyPressed:
+        {
+            if (event.key == Qt.Key_Escape)
+            {
+                event.accepted = true;
 
-    return application->exec();
+                close();
+            }
+        }
+
+//#DESKTOP
+        ViewDrag
+        {
+            anchors.fill: parent
+
+            onDoubleClicked: window.maximized = !(window.maximized);
+        }
+//#END
+    }
 }

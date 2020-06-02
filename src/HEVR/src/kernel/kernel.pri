@@ -1,7 +1,7 @@
 # Kernel module
 
-HEADERS += $$SK_CORE/kernel/WCoreApplication.h \
-           $$SK_CORE/kernel/WListId.h \
+HEADERS += $$SK_CORE/kernel/WListId.h \
+           $$SK_GUI/kernel/WApplication.h \
 
-SOURCES += $$SK_CORE/kernel/WCoreApplication.cpp \
-           $$SK_CORE/kernel/WListId.cpp \
+SOURCES += $$SK_CORE/kernel/WListId.cpp \
+           $$SK_GUI/kernel/WApplication.cpp \

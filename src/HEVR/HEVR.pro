@@ -1,35 +1,45 @@
 SK = $$_PRO_FILE_PWD_/../../../Sky
 
 SK_CORE = $$SK/src/SkCore/src
+SK_GUI  = $$SK/src/SkGui/src
 
 HEVR=$$_PRO_FILE_PWD_/../..
 
 TARGET = HEVR
 
-DESTDIR = $$HEVR/bin
-
-CONFIG += console
-
-macx:CONFIG -= app_bundle
+!android:DESTDIR = $$HEVR/bin
 
 contains(QT_MAJOR_VERSION, 4) {
-    QT += network script xml xmlpatterns
+    QT += opengl declarative network xml xmlpatterns svg
 } else {
-    QT += network xml xmlpatterns
+    QT += opengl quick network xml xmlpatterns svg
 }
 
-QT -= gui
+contains(QT_MAJOR_VERSION, 5) {
+    win32:QT += winextras
 
-DEFINES += SK_CONSOLE SK_NO_QML SK_CORE_LIBRARY
+    unix:!macx:!android:QT += x11extras
+}
+
+DEFINES += SK_CORE_LIBRARY SK_GUI_LIBRARY
 
 contains(QT_MAJOR_VERSION, 4) {
     DEFINES += QT_4
+
+    CONFIG(release, debug|release) {
+
+        win32:DEFINES += SK_WIN_NATIVE
+    }
 } else {
-    DEFINES += QT_LATEST
+    DEFINES += QT_LATEST #SK_SOFTWARE
+
+    win32:DEFINES += SK_WIN_NATIVE
 }
 
 deploy|android {
     DEFINES += SK_DEPLOY
+
+    RESOURCES = $$HEVR/dist/HEVR.qrc
 }
 
 !win32-msvc*:QMAKE_CXXFLAGS += -std=c++11
@@ -41,11 +51,43 @@ include(src/controllers/controllers.pri)
 include(src/kernel/kernel.pri)
 include(src/io/io.pri)
 include(src/thread/thread.pri)
+include(src/image/image.pri)
+include(src/graphicsview/graphicsview.pri)
+include(src/declarative/declarative.pri)
 
 include(src/3rdparty/qtsingleapplication/qtsingleapplication.pri)
 
 INCLUDEPATH += $$SK/include/SkCore \
+               $$SK/include/SkGui \
                $$HEVR/include/HEVR \
 
-# Windows dependency for ShellExecuteA
-win32-msvc*:LIBS += shell32.lib
+contains(QT_MAJOR_VERSION, 5) {
+    INCLUDEPATH += $$SK/include/Qt5 \
+                   $$SK/include/Qt5/QtCore \
+                   $$SK/include/Qt5/QtGui \
+                   $$SK/include/Qt5/QtQml \
+                   $$SK/include/Qt5/QtQuick
+}
+
+unix:contains(QT_MAJOR_VERSION, 4) {
+    INCLUDEPATH += $$SK/include/Qt4/QtCore \
+                   $$SK/include/Qt4/QtGui \
+                   $$SK/include/Qt4/QtDeclarative
+}
+
+# Windows dependency for ShellExecuteA and PostMessage
+win32-msvc*:LIBS += shell32.lib User32.lib
+
+unix:!macx:!android:contains(QT_MAJOR_VERSION, 4) {
+    LIBS += -lX11
+}
+
+macx:ICON = $$HEVR/dist/icon.icns
+
+RC_FILE = $$HEVR/dist/HEVR.rc
+
+android {
+    ANDROID_PACKAGE_SOURCE_DIR = $$HEVR/dist/android
+
+    DISTFILES += $$HEVR/dist/android/AndroidManifest.xml
+}

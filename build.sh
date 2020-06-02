@@ -35,6 +35,9 @@ WindowsKit_version="10"
 #--------------------------------------------------------------------------------------------------
 # Android
 
+JDK_version="8u251"
+
+SDK_version="29"
 NDK_version="21"
 
 #--------------------------------------------------------------------------------------------------
@@ -83,12 +86,12 @@ getPath()
 if [ $# != 1 -a $# != 2 ] \
    || \
    [ $1 != "win32" -a $1 != "win64" -a $1 != "win32-msvc" -a $1 != "win64-msvc" -a \
-     $1 != "macOS" -a $1 != "linux" ] \
+     $1 != "macOS" -a $1 != "linux" -a $1 != "android" ] \
    || \
    [ $# = 2 -a "$2" != "all" -a "$2" != "lib" -a "$2" != "deploy" -a "$2" != "clean" ]; then
 
-    echo "Usage: build <win32 | win64 | win32-msvc | win64-msvc | macOS | linux>"
-    echo "             [all | lib | deploy | clean]"
+    echo "Usage: build <win32 | win64 | win32-msvc | win64-msvc | macOS | linux | android>"
+    echo "             [all | deploy | clean]"
 
     exit 1
 fi
@@ -112,24 +115,6 @@ if [ "$2" = "all" ]; then
     cd "$path"
 
     sh build.sh $1 deploy
-
-    sh build.sh $1 lib
-
-    #----------------------------------------------------------------------------------------------
-    # FIXME: This is a hack for deploying the library without clearing the deploy folder.
-
-    if [ $1 = "win32" -o $1 = "win64" -o $1 = "win32-msvc" -o $1 = "win64-msvc" ]; then
-
-        cp lib/*HEVR.* deploy
-
-    elif [ $1 = "macOS" ]; then
-
-        cp lib/libHEVR.dylib deploy
-    else
-        cp lib/libHEVR.so deploy
-    fi
-
-    #----------------------------------------------------------------------------------------------
 
     exit 0
 fi
@@ -176,6 +161,21 @@ if [ $1 = "win32" -o $1 = "win64" -o $1 = "win32-msvc" -o $1 = "win64-msvc" ]; t
             target="x64"
         fi
     fi
+
+elif [ $1 = "android" ]; then
+
+    if [ $host != "linux" ]; then
+
+        echo "You have to cross-compile $2 from Linux (preferably Ubuntu)."
+
+        exit 1
+    fi
+
+    os="default"
+
+    compiler="default"
+
+    abi="armeabi-v7a arm64-v8a x86 x86_64"
 else
     os="default"
 
@@ -184,7 +184,7 @@ fi
 
 Qt="$external/Qt/$Qt5_version"
 
-if [ $os = "windows" -o $1 = "macOS" ]; then
+if [ $os = "windows" -o $1 = "macOS" -o $1 = "android" ]; then
 
     qmake="$Qt/bin/qmake"
 else
@@ -212,7 +212,7 @@ fi
 #--------------------------------------------------------------------------------------------------
 
 echo "BUILDING HEVR"
-echo "--------------"
+echo "-------------"
 
 export QT_SELECT=qt5
 
@@ -255,19 +255,45 @@ elif [ $1 = "linux" ]; then
     else
         spec=linux-g++-32
     fi
+
+elif [ $2 = "android" ]; then
+
+    spec=android-clang
+
+    export JAVA_HOME="$external/JDK/$JDK_version"
+
+    export ANDROID_SDK_ROOT="$external/SDK/$SDK_version"
+    export ANDROID_NDK_ROOT="$external/NDK/$NDK_version"
 fi
 
 $qmake --version
 echo ""
 
-cd build
+cd content
 
-if [ "$2" = "lib" ]; then
+if [ "$2" = "deploy" ]; then
 
-    config="$config lib"
+    sh generate.sh $1 deploy
+else
+    sh generate.sh $1
 fi
 
-$qmake -r -spec $spec "$config" ..
+echo ""
+
+cd ../build
+
+if [ "$2" = "deploy" ]; then
+
+    config="$config deploy"
+fi
+
+
+if [ $2 = "android" ]; then
+
+    $qmake -r -spec $spec "$config" "ANDROID_ABIS=$abi" ..
+else
+    $qmake -r -spec $spec "$config" ..
+fi
 
 if [ $compiler = "mingw" ]; then
 
@@ -276,13 +302,17 @@ if [ $compiler = "mingw" ]; then
 elif [ $compiler = "msvc" ]; then
 
     jom
+
+elif [ $2 = "android" ]; then
+
+    make $make_arguments aab
 else
     make $make_arguments
 fi
 
 cd ..
 
-echo "--------------"
+echo "-------------"
 
 #--------------------------------------------------------------------------------------------------
 # Deploying HEVR

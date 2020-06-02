@@ -15,17 +15,26 @@ external="../3rdparty"
 MinGW_version="7.3.0"
 
 #--------------------------------------------------------------------------------------------------
+# Android
+
+JDK_version="8u251"
+
+TOOLS_version="30.0.0-rc4"
+
+SDK_version="29"
+
+#--------------------------------------------------------------------------------------------------
 # Syntax
 #--------------------------------------------------------------------------------------------------
 
 if [ $# != 1 -a $# != 2 ] \
    || \
    [ $1 != "win32" -a $1 != "win64" -a $1 != "win32-msvc" -a $1 != "win64-msvc" -a \
-     $1 != "macOS" -a $1 != "linux" ] \
+     $1 != "macOS" -a $1 != "linux" -a $1 != "android" ] \
    || \
    [ $# = 2 -a "$2" != "sky" -a "$2" != "clean" ]; then
 
-    echo "Usage: configure <win32 | win64 | win32-msvc | win64-msvc | macOS | linux>"
+    echo "Usage: configure <win32 | win64 | win32-msvc | win64-msvc | macOS | linux | android>"
     echo "                 [sky | clean]"
 
     exit 1
@@ -95,4 +104,28 @@ if [ $compiler = "mingw" ]; then
     cp "$MinGW"/libgcc_s_*-1.dll    bin
     cp "$MinGW"/libstdc++-6.dll     bin
     cp "$MinGW"/libwinpthread-1.dll bin
+fi
+
+#--------------------------------------------------------------------------------------------------
+# SDK
+#--------------------------------------------------------------------------------------------------
+
+if [ $1 = "android" ]; then
+
+    echo "CONFIGURING SDK"
+
+    cd "$external/SDK/$SDK_version/tools/bin"
+
+    export JAVA_HOME="$external/JDK/$JDK_version"
+
+    path="$PWD/../.."
+
+    yes | ./sdkmanager --sdk_root="$path" --licenses
+
+    ./sdkmanager --sdk_root="$path" "build-tools;$TOOLS_version" \
+                                    "platforms;android-$SDK_version" \
+
+    ./sdkmanager --sdk_root="$path" --update
+
+    cd -
 fi

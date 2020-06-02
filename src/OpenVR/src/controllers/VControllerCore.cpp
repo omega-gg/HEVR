@@ -17,8 +17,9 @@
 #include "VControllerCore.h"
 
 // Qt includes
-#ifndef SK_DEPLOY
 #include <QDir>
+#if defined(SK_DEPLOY) && defined(QT_LATEST)
+#include <QStandardPaths>
 #endif
 
 // Sk includes

@@ -13,5 +13,7 @@ OTHER_FILES += 3rdparty.sh \
                LICENSE.md \
                AUTHORS.md \
                .azure-pipelines.yml \
+               content/generate.sh \
+               content/Main.qml \
                include/generate.sh \
                dist/changes/1.0.0.md \
