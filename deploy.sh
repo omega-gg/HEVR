@@ -261,17 +261,21 @@ echo "COPYING HEVR"
 
 if [ $os = "windows" ]; then
 
+    mkdir deploy/driver
+
     cp bin/HEVR.exe deploy
 
-    cp lib/OpenVR.dll deploy
+    cp lib/OpenVR.dll deploy/driver
 
 elif [ $1 = "macOS" ]; then
 
-    cp bin/HEVR deploy
+    mkdir $deploy/driver
 
-    cp lib/OpenVR.dylib deploy
+    cp bin/HEVR $deploy
 
-    cd deploy
+    cp lib/OpenVR.dylib $deploy/driver
+
+    cd $deploy
 
     #----------------------------------------------------------------------------------------------
     # Qt
@@ -382,9 +386,11 @@ elif [ $1 = "macOS" ]; then
 
 elif [ $1 = "linux" ]; then
 
+    mkdir deploy/driver
+
     cp bin/HEVR deploy
 
-    cp lib/libOpenVR.so deploy
+    cp lib/libOpenVR.so deploy/driver
 
 elif [ $1 = "android" ]; then
 
