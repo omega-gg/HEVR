@@ -2,8 +2,8 @@ TEMPLATE = subdirs
 
 CONFIG += ordered
 
-SUBDIRS = src/HEVR \
-          src/OpenVR \
+SUBDIRS = src/OpenVR \
+          src/HEVR \
 
 OTHER_FILES += 3rdparty.sh \
                configure.sh \
