@@ -92,7 +92,7 @@ fi
 # Icon
 #--------------------------------------------------------------------------------------------------
 
-if [ $2 = "macOS" ]; then
+if [ $1 = "macOS" ]; then
 
     echo "GENERATING icon"
 
@@ -129,7 +129,7 @@ if [ $os = "windows" ]; then
 
     defines="DESKTOP WINDOWS"
 
-elif [ $2 = "macOS" ]; then
+elif [ $1 = "macOS" ]; then
 
     defines="DESKTOP MAC"
 
