@@ -76,7 +76,14 @@ fi
 # Sky
 #--------------------------------------------------------------------------------------------------
 
-echo "COPYING Sky"
+echo "DEPLOYING Sky"
+echo "-------------"
+
+cd "$Sky"
+
+sh deploy.sh qt5 $1 tools
+
+cd -
 
 path="$Sky/deploy"
 
@@ -252,6 +259,9 @@ elif [ $2 = "linux" ]; then
         cp "$path"/QtQuick.2/qmldir               deploy/QtQuick.2
     fi
 fi
+
+echo "-------------"
+echo ""
 
 #--------------------------------------------------------------------------------------------------
 # HEVR
