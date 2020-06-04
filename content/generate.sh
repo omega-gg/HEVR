@@ -63,8 +63,8 @@ if [ "$2" = "clean" ]; then
     rm -f  $bin/*.qml
     rm -rf $bin/pictures
 
-    rm -f  qrc/*.qml
-    rm -rf qrc/pictures
+    rm -rf qrc
+    touch  qrc/.gitignore
 
     exit 0
 fi
