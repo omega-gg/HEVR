@@ -4,7 +4,7 @@ CONFIG += ordered
 
 SUBDIRS = src/HEVR \
           src/libHEVR \
-          src/OpenVR \
+          src/HEVR-OpenVR \
 
 OTHER_FILES += 3rdparty.sh \
                configure.sh \

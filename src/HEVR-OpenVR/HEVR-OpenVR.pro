@@ -4,7 +4,7 @@ SK_CORE = $$SK/src/SkCore/src
 
 HEVR=$$_PRO_FILE_PWD_/../..
 
-TARGET = OpenVR
+TARGET = HEVR-OpenVR
 
 DESTDIR = $$HEVR/lib
 
@@ -20,7 +20,7 @@ contains(QT_MAJOR_VERSION, 4) {
 
 QT -= gui
 
-DEFINES += SK_CONSOLE SK_NO_QML SK_CORE_LIBRARY OPENVR_LIBRARY
+DEFINES += SK_CONSOLE SK_NO_QML SK_CORE_LIBRARY HEVR_LIBRARY OPENVR_LIBRARY
 
 contains(QT_MAJOR_VERSION, 4) {
     DEFINES += QT_4
@@ -45,7 +45,8 @@ include(src/thread/thread.pri)
 include(src/3rdparty/qtsingleapplication/qtsingleapplication.pri)
 
 INCLUDEPATH += $$SK/include/SkCore \
-               $$HEVR/include/OpenVR \
+               $$HEVR/include/libHEVR \
+               $$HEVR/include/HEVR-OpenVR \
 
 # Windows dependency for ShellExecuteA
 win32-msvc*:LIBS += shell32.lib

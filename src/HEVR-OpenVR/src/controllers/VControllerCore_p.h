@@ -14,37 +14,40 @@
 */
 //=================================================================================================
 
-#ifndef VCONTROLLERCORE_H
-#define VCONTROLLERCORE_H
+#ifndef VCONTROLLERCORE_P_H
+#define VCONTROLLERCORE_P_H
 
-// Sk includes
-#include <WController>
+/*  W A R N I N G
+    -------------
 
-// OpenVR includes
-#include <OpenVR>
+    This file is not part of the HEVR API. It exists purely as an
+    implementation detail. This header file may change from version to
+    version without notice, or even be removed.
+
+    We mean it.
+*/
+
+// HEVR-OpenVR includes
+#include <VDataLocal>
+
+// Private includes
+#include <private/WController_p>
 
 #ifndef OPENVR_NO_CONTROLLERCORE
 
-// Forward declarations
-class VControllerCorePrivate;
-
-// Defines
-#define core VControllerCore::instance()
-
-class OPENVR_EXPORT VControllerCore : public WController
+class OPENVR_EXPORT VControllerCorePrivate : public WControllerPrivate
 {
-    Q_OBJECT
+public:
+    VControllerCorePrivate(VControllerCore * p);
 
-private:
-    VControllerCore();
+    void init();
 
-protected: // Initialize
-    /* virtual */ void init();
+public: // Variables
+    VDataLocal local;
 
-private:
-    W_DECLARE_PRIVATE   (VControllerCore)
-    W_DECLARE_CONTROLLER(VControllerCore)
+protected:
+    W_DECLARE_PUBLIC(VControllerCore)
 };
 
 #endif // OPENVR_NO_CONTROLLERCORE
-#endif // VCONTROLLERCORE_H
+#endif // VCONTROLLERCORE_P_H

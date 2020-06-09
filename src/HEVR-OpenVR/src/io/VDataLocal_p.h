@@ -14,16 +14,37 @@
 */
 //=================================================================================================
 
-#ifndef OPENVR_H_
-#define OPENVR_H_
+#ifndef VDATALOCAL_P_H
+#define VDATALOCAL_P_H
 
-//-------------------------------------------------------------------------------------------------
-// Defines
+/*  W A R N I N G
+    -------------
 
-#if defined(OPENVR_LIBRARY)
-#   define OPENVR_EXPORT Q_DECL_EXPORT
-#else
-#   define OPENVR_EXPORT Q_DECL_IMPORT
-#endif
+    This file is not part of the HEVR API. It exists purely as an
+    implementation detail. This header file may change from version to
+    version without notice, or even be removed.
 
-#endif // OPENVR_H_
+    We mean it.
+*/
+
+// Hevr includes
+#include <Hevr>
+
+// Private includes
+#include <private/WLocalObject_p>
+
+#ifndef OPENVR_NO_DATALOCAL
+
+class OPENVR_EXPORT VDataLocalPrivate : public WLocalObjectPrivate
+{
+public:
+    VDataLocalPrivate(VDataLocal * p);
+
+    void init();
+
+protected:
+    W_DECLARE_PUBLIC(VDataLocal)
+};
+
+#endif // OPENVR_NO_DATALOCAL
+#endif // VDATALOCAL_P_H
