@@ -10,7 +10,8 @@ OTHER_FILES += 3rdparty.sh \
                build.sh \
                deploy.sh \
                README.md \
-               LICENSE.md \
+               GPL3.md \
+               LPGL3.md \
                AUTHORS.md \
                .azure-pipelines.yml \
                content/generate.sh \
