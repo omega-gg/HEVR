@@ -4,11 +4,7 @@ SK_CORE = $$SK/src/SkCore/src
 
 HEVR=$$_PRO_FILE_PWD_/../..
 
-win32 {
-    TARGET = HEVR
-} else {
-    TARGET = libHEVR
-}
+TARGET = HEVR
 
 DESTDIR = $$HEVR/lib
 
