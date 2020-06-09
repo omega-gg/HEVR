@@ -149,47 +149,44 @@ if [ $os = "windows" ]; then
         cp "$path"/QtQuick.2/qmldir             deploy/QtQuick.2
     fi
 
-elif [ $2 = "macOS" ]; then
+elif [ $1 = "macOS" ]; then
 
-    if [ $1 = "qt5" ]; then
+    mkdir $deploy/platforms
+    mkdir $deploy/imageformats
+    mkdir $deploy/QtQuick.2
 
-        mkdir $deploy/platforms
-        mkdir $deploy/imageformats
-        mkdir $deploy/QtQuick.2
+    # FIXME Qt 5.14 macOS: We have to copy qt.conf to avoid a segfault.
+    cp "$path"/qt.conf $deploy
 
-        # FIXME Qt 5.14 macOS: We have to copy qt.conf to avoid a segfault.
-        cp "$path"/qt.conf $deploy
+    cp "$path"/QtCore.dylib         $deploy
+    cp "$path"/QtGui.dylib          $deploy
+    cp "$path"/QtNetwork.dylib      $deploy
+    cp "$path"/QtOpenGL.dylib       $deploy
+    cp "$path"/QtCore.dylib         $deploy
+    cp "$path"/QtQml.dylib          $deploy
+    cp "$path"/QtQuick.dylib        $deploy
+    cp "$path"/QtSvg.dylib          $deploy
+    cp "$path"/QtWidgets.dylib      $deploy
+    cp "$path"/QtXml.dylib          $deploy
+    cp "$path"/QtXmlPatterns.dylib  $deploy
+    cp "$path"/QtDBus.dylib         $deploy
+    cp "$path"/QtPrintSupport.dylib $deploy
 
-        cp "$path"/QtCore.dylib         $deploy
-        cp "$path"/QtGui.dylib          $deploy
-        cp "$path"/QtNetwork.dylib      $deploy
-        cp "$path"/QtOpenGL.dylib       $deploy
-        cp "$path"/QtCore.dylib         $deploy
-        cp "$path"/QtQml.dylib          $deploy
-        cp "$path"/QtQuick.dylib        $deploy
-        cp "$path"/QtSvg.dylib          $deploy
-        cp "$path"/QtWidgets.dylib      $deploy
-        cp "$path"/QtXml.dylib          $deploy
-        cp "$path"/QtXmlPatterns.dylib  $deploy
-        cp "$path"/QtDBus.dylib         $deploy
-        cp "$path"/QtPrintSupport.dylib $deploy
+    if [ -f "$path"/QtQmlModels.dylib ]; then
 
-        if [ -f "$path"/QtQmlModels.dylib ]; then
-
-            cp "$path"/QtQmlModels.dylib       $deploy
-            cp "$path"/QtQmlWorkerScript.dylib $deploy
-        fi
-
-        cp "$path"/platforms/libqcocoa.dylib $deploy/platforms
-
-        cp "$path"/imageformats/libqsvg.dylib  $deploy/imageformats
-        cp "$path"/imageformats/libqjpeg.dylib $deploy/imageformats
-
-        cp "$path"/QtQuick.2/libqtquick2plugin.dylib $deploy/QtQuick.2
-        cp "$path"/QtQuick.2/qmldir                  $deploy/QtQuick.2
+        cp "$path"/QtQmlModels.dylib       $deploy
+        cp "$path"/QtQmlWorkerScript.dylib $deploy
     fi
 
-elif [ $2 = "linux" ]; then
+    cp "$path"/platforms/libqcocoa.dylib $deploy/platforms
+
+    cp "$path"/imageformats/libqsvg.dylib  $deploy/imageformats
+    cp "$path"/imageformats/libqjpeg.dylib $deploy/imageformats
+
+    cp "$path"/QtQuick.2/libqtquick2plugin.dylib $deploy/QtQuick.2
+    cp "$path"/QtQuick.2/qmldir                  $deploy/QtQuick.2
+
+elif [ $1 = "linux" ]; then
 
     if [ $1 = "qt4" ]; then
 
@@ -288,8 +285,8 @@ elif [ $1 = "macOS" ]; then
 
     cp bin/HEVR $deploy
 
-    cp lib/HEVR.dylib        $driver
-    cp lib/HEVR-OpenVR.dylib $driver
+    cp lib/libHEVR.dylib        $driver
+    cp lib/libHEVR-OpenVR.dylib $driver
 
     cd $deploy
 
