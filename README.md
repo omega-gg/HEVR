@@ -1,8 +1,8 @@
 HEVR - High Efficiency Virtual Reality
 ---
 [![azure](https://dev.azure.com/bunjee/HEVR/_apis/build/status/omega-gg.HEVR)](https://dev.azure.com/bunjee/HEVR/_build)
-[![GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl.html)
 [![LGPLv3](https://img.shields.io/badge/License-LGPLv3-blue.svg)](https://www.gnu.org/licenses/lgpl.html)
+[![GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl.html)
 
 ** This is a work in progress and not yet released **
 
@@ -104,16 +104,16 @@ Copyright (C) 2015 - 2020 HEVR authors | http://omega.gg/HEVR
 
 - Benjamin Arnaud aka [bunjee](http://bunjee.me) | <bunjee@omega.gg>
 
-### GNU General Public License Usage
-
-HEVR client may be used under the terms of the GNU General Public License version 3 as published
-by the Free Software Foundation and appearing in the LICENSE.md file included in the packaging
-of this file. Please review the following information to ensure the GNU General Public License
-requirements will be met: https://www.gnu.org/licenses/gpl.html.
-
 ### GNU Lesser General Public License Usage
 
 libHEVR may be used under the terms of the GNU Lesser General Public License version 3 as published
 by the Free Software Foundation and appearing in the LICENSE.md file included in the packaging of
 this file. Please review the following information to ensure the GNU Lesser General Public License
 requirements will be met: https://www.gnu.org/licenses/lgpl.html.
+
+### GNU General Public License Usage
+
+HEVR client may be used under the terms of the GNU General Public License version 3 as published
+by the Free Software Foundation and appearing in the LICENSE.md file included in the packaging
+of this file. Please review the following information to ensure the GNU General Public License
+requirements will be met: https://www.gnu.org/licenses/gpl.html.
