@@ -89,5 +89,5 @@ RC_FILE = $$HEVR/dist/HEVR.rc
 android {
     ANDROID_PACKAGE_SOURCE_DIR = $$HEVR/dist/android
 
-    DISTFILES += $$HEVR/dist/android/AndroidManifest.xml
+    DISTFILES += $$ANDROID_PACKAGE_SOURCE_DIR/AndroidManifest.xml
 }
