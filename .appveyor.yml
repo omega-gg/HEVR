@@ -1,0 +1,15 @@
+clone_folder: C:\dev\workspace\HEVR
+
+environment:
+  matrix:
+    - qt: qt4
+      platform: win32
+
+install:
+  - sh environment.sh %qt%
+
+build_script:
+  - sh build.sh %platform% all
+
+artifacts:
+  - path: HEVR-%platform%-%qt%.zip

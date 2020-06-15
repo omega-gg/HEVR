@@ -17,6 +17,7 @@ OTHER_FILES += 3rdparty.sh \
                LPGL3.md \
                AUTHORS.md \
                .azure-pipelines.yml \
+               .appveyor.yml \
                content/generate.sh \
                content/Main.qml \
                include/generate.sh \
