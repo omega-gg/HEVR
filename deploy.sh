@@ -406,7 +406,7 @@ elif [ $1 = "linux" ]; then
 
 elif [ $1 = "android" ]; then
 
-    path="build/android-build/build/outputs"
+    path="build/src/HEVR/android-build/build/outputs"
 
     cp $path/apk/release/android-build-release-unsigned.apk $deploy/Hevr.apk
 

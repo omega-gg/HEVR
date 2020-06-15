@@ -147,7 +147,7 @@ elif [ $1 = "linux" ]; then
 
     defines="DESKTOP LINUX"
 else
-    defines="ANDROID"
+    defines="MOBILE ANDROID"
 fi
 
 "$Sky"/deploy/deployer $path $version HEVR.qrc "$defines" \
