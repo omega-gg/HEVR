@@ -2,9 +2,10 @@ TEMPLATE = subdirs
 
 CONFIG += ordered
 
-SUBDIRS = src/libHEVR \
-          src/HEVR-OpenVR \
-          src/HEVR \
+SUBDIRS = src/HEVR
+
+!android:SUBDIRS += src/libHEVR \
+                    src/HEVR-OpenVR \
 
 OTHER_FILES += 3rdparty.sh \
                configure.sh \

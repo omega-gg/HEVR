@@ -99,3 +99,23 @@ jobs:
                                      zip -rq ../HEVR.zip *"
   - publish: $(System.DefaultWorkingDirectory)/HEVR.zip
     artifact: HEVR-linux64
+
+#--------------------------------------------------------------------------------------------------
+# Android
+#--------------------------------------------------------------------------------------------------
+
+- job: android
+  pool:
+    vmImage: "ubuntu-latest"
+  steps:
+  - bash: |
+      docker run -d --name ubuntu -v $PWD:/HEVR amd64/ubuntu:18.04 tail -f /dev/null
+      docker exec -t ubuntu bash -c "cd /HEVR;
+                                     apt-get update;
+                                     apt-get -y install sudo curl zip git;
+                                     sh 3rdparty.sh linux;
+                                     sh build.sh android all;
+                                     cd deploy;
+                                     zip -rq ../HEVR.zip *"
+  - publish: $(System.DefaultWorkingDirectory)/HEVR.zip
+    artifact: HEVR-linux64
