@@ -116,7 +116,7 @@ if [ "$2" = "all" ]; then
 
     cd ../Sky
 
-    sh build.sh qt5 $1 tools
+    sh build.sh $qt $1 tools
 
     cd "$path"
 

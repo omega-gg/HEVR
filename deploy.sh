@@ -86,7 +86,7 @@ echo "-------------"
 
 cd "$Sky"
 
-sh deploy.sh qt5 $1 tools
+sh deploy.sh $qt $1 tools
 
 cd -
 
