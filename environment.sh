@@ -13,7 +13,7 @@ qt="qt5"
 
 if [ $# != 1 ] || [ $1 != "qt4" -a $1 != "qt5" ]; then
 
-    echo "Usage: env <qt4 | qt5>"
+    echo "Usage: environment <qt4 | qt5>"
 
     exit 1
 fi
@@ -24,9 +24,8 @@ fi
 
 expression='s/qt=\"'"$qt"'"/qt=\"'"$1"'"/g'
 
-sed -i $expression env.sh
+sed -i $expression environment.sh
 
-sed -i $expression configure.sh
 sed -i $expression build.sh
 sed -i $expression deploy.sh
 

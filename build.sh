@@ -9,6 +9,7 @@ external="$PWD/../3rdparty"
 
 #--------------------------------------------------------------------------------------------------
 
+Qt4_version="4.8.7"
 Qt5_version="5.14.2"
 
 #--------------------------------------------------------------------------------------------------
@@ -39,6 +40,11 @@ JDK_version="8u251"
 
 SDK_version="29"
 NDK_version="21"
+
+#--------------------------------------------------------------------------------------------------
+# environment
+
+qt="qt5"
 
 #--------------------------------------------------------------------------------------------------
 # Functions
@@ -182,7 +188,12 @@ else
     compiler="default"
 fi
 
-Qt="$external/Qt/$Qt5_version"
+if [ $qt = "qt4" ]; then
+
+    Qt="$external/Qt/$Qt4_version"
+else
+    Qt="$external/Qt/$Qt5_version"
+fi
 
 if [ $os = "windows" -o $1 = "macOS" -o $1 = "android" ]; then
 
@@ -214,9 +225,16 @@ fi
 echo "BUILDING HEVR"
 echo "-------------"
 
-export QT_SELECT=qt5
+if [ $qt = "qt4" ]; then
 
-config="CONFIG+=release"
+    export QT_SELECT=qt4
+
+    config="CONFIG += release"
+else
+    export QT_SELECT=qt5
+
+    config="CONFIG += release qtquickcompiler"
+fi
 
 if [ $compiler = "mingw" ]; then
 
@@ -226,7 +244,12 @@ if [ $compiler = "mingw" ]; then
 
 elif [ $compiler = "msvc" ]; then
 
-    spec=win32-msvc
+    if [ $qt = "qt4" ]; then
+
+        spec=win32-msvc2015
+    else
+        spec=win32-msvc
+    fi
 
     PATH="$jom:$MSVC/bin/Host$target/$target:\
 $WindowsKit/bin/$WindowsKit_version/$target:\
@@ -306,6 +329,19 @@ elif [ $compiler = "msvc" ]; then
 elif [ $2 = "android" ]; then
 
     make $make_arguments aab
+
+    #----------------------------------------------------------------------------------------------
+    # FIXME Qt android: We have to call androiddeployqt to generate a release apk.
+
+    androiddeployqt="$external/Qt/$Qt5_version/bin/androiddeployqt"
+
+    "$androiddeployqt" --release --apk --aab \
+                       --input android-HelloSky-deployment-settings.json \
+                       --output android-build \
+                       --android-platform android-$SDK_version \
+                       --jdk $JAVA_HOME
+
+    #----------------------------------------------------------------------------------------------
 else
     make $make_arguments
 fi
