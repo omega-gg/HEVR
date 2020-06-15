@@ -172,7 +172,7 @@ elif [ $1 = "android" ]; then
 
     if [ $host != "linux" ]; then
 
-        echo "You have to cross-compile $2 from Linux (preferably Ubuntu)."
+        echo "You have to cross-compile $1 from Linux (preferably Ubuntu)."
 
         exit 1
     fi
@@ -311,7 +311,7 @@ if [ "$2" = "deploy" ]; then
 fi
 
 
-if [ $2 = "android" ]; then
+if [ $1 = "android" ]; then
 
     $qmake -r -spec $spec "$config" "ANDROID_ABIS=$abi" ..
 else
@@ -326,7 +326,7 @@ elif [ $compiler = "msvc" ]; then
 
     jom
 
-elif [ $2 = "android" ]; then
+elif [ $1 = "android" ]; then
 
     make $make_arguments aab
 
