@@ -10,6 +10,7 @@ OTHER_FILES += 3rdparty.sh \
                configure.sh \
                build.sh \
                deploy.sh \
+               env.sh \
                README.md \
                GPL3.md \
                LPGL3.md \
