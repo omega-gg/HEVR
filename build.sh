@@ -279,7 +279,7 @@ elif [ $1 = "linux" ]; then
         spec=linux-g++-32
     fi
 
-elif [ $2 = "android" ]; then
+elif [ $1 = "android" ]; then
 
     spec=android-clang
 
