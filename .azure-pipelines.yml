@@ -118,4 +118,4 @@ jobs:
                                      cd deploy;
                                      zip -rq ../HEVR.zip *"
   - publish: $(System.DefaultWorkingDirectory)/HEVR.zip
-    artifact: HEVR-linux64
+    artifact: HEVR-android

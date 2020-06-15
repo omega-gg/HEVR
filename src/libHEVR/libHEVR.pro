@@ -18,8 +18,6 @@ contains(QT_MAJOR_VERSION, 4) {
     QT += network xml xmlpatterns
 }
 
-QT -= gui
-
 DEFINES += SK_CONSOLE SK_NO_QML SK_CORE_LIBRARY HEVR_LIBRARY
 
 contains(QT_MAJOR_VERSION, 4) {
