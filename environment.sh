@@ -26,6 +26,7 @@ expression='s/qt=\"'"$qt"'"/qt=\"'"$1"'"/g'
 
 sed -i $expression environment.sh
 
+sed -i $expression configure.sh
 sed -i $expression build.sh
 sed -i $expression deploy.sh
 
