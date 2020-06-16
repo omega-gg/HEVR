@@ -10,6 +10,9 @@ install:
 
 build_script:
   - sh build.sh %platform% all
+  - cd deploy
+  - rm .gitignore
+  - 7z a ../HEVR-%platform%-%qt%.zip *
 
 artifacts:
   - path: HEVR-%platform%-%qt%.zip
