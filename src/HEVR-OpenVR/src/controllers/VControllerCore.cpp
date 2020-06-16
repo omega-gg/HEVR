@@ -18,9 +18,6 @@
 
 // Qt includes
 #include <QDir>
-#if defined(SK_DEPLOY) && defined(QT_LATEST)
-#include <QStandardPaths>
-#endif
 
 // Sk includes
 #include <WControllerFile>
@@ -47,7 +44,7 @@ VControllerCorePrivate::VControllerCorePrivate(VControllerCore * p) : WControlle
 void VControllerCorePrivate::init()
 {
 #ifdef SK_DEPLOY
-    QString path = QStandardPaths::writableLocation(QStandardPaths::DataLocation);
+    QString path = WControllerFile::pathWritable();
 
     wControllerFile->setPathStorage(QDir::fromNativeSeparators(path));
 #else

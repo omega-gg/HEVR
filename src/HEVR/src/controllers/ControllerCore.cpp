@@ -36,13 +36,6 @@
 W_INIT_CONTROLLER(ControllerCore)
 
 //-------------------------------------------------------------------------------------------------
-// Static variables
-
-#ifndef SK_DEPLOY
-static const QString PATH_STORAGE = "/storage";
-#endif
-
-//-------------------------------------------------------------------------------------------------
 // Ctor / dtor
 //-------------------------------------------------------------------------------------------------
 
@@ -54,7 +47,7 @@ ControllerCore::ControllerCore() : WController()
 
     wControllerFile->setPathStorage(QDir::fromNativeSeparators(path));
 #else
-    QString path = QDir::currentPath() + PATH_STORAGE;
+    QString path = QDir::currentPath();
 
     wControllerFile->setPathStorage(path);
 #endif
