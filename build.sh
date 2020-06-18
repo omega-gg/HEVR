@@ -108,8 +108,6 @@ fi
 
 if [ "$2" = "all" ]; then
 
-    path="$PWD"
-
     sh 3rdparty.sh $1
 
     sh configure.sh $1 sky
@@ -118,7 +116,7 @@ if [ "$2" = "all" ]; then
 
     sh build.sh $qt $1 tools
 
-    cd "$path"
+    cd -
 
     sh build.sh $1 deploy
 
