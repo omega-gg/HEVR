@@ -21,6 +21,7 @@
 
 // Sk includes
 #include <WControllerFile>
+#include <WControllerView>
 #include <WControllerDeclarative>
 #include <WApplication>
 #include <WView>
@@ -34,6 +35,11 @@
 #include <WImageColorFilter>
 
 W_INIT_CONTROLLER(ControllerCore)
+
+//-------------------------------------------------------------------------------------------------
+// Static variables
+
+static const QString CORE_VERSION = "1.0.0-0";
 
 //-------------------------------------------------------------------------------------------------
 // Ctor / dtor
@@ -75,6 +81,8 @@ ControllerCore::ControllerCore() : WController()
         _local.save();
     }
 
+    sk->setVersion(CORE_VERSION);
+
     //---------------------------------------------------------------------------------------------
     // QML
     //---------------------------------------------------------------------------------------------
@@ -106,6 +114,10 @@ ControllerCore::ControllerCore() : WController()
 #ifdef QT_4
     qmlRegisterType<WDeclarativeImageSvgScale>("Sky", 1,0, "ImageSvgScale");
 #endif
+
+    qmlRegisterUncreatableType<WImageFilter>("Sky", 1,0, "ImageFilter", "ImageFilter is abstract");
+
+    qmlRegisterType<WImageColorFilter>("Sky", 1,0, "ImageColorFilter");
 
     qmlRegisterUncreatableType<WDeclarativeKeyEvent>("Sky", 1,0, "DeclarativeKeyEvent",
                                                      "DeclarativeKeyEvent is not creatable");

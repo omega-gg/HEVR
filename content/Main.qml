@@ -29,7 +29,12 @@ Application
     {
         id: window
 
-        st: Style { id: st }
+        width : st.dp1024
+        height: st.dp576
+
+        st: StyleTouch { id: st }
+
+        Component.onCompleted: centerWindow()
 
         onKeyPressed:
         {
@@ -47,6 +52,14 @@ Application
             anchors.fill: parent
 
             onDoubleClicked: window.maximized = !(window.maximized);
+        }
+
+        ButtonsWindow
+        {
+            anchors.top  : parent.top
+            anchors.right: parent.right
+
+            anchors.margins: st.dp4
         }
 //#END
     }
