@@ -17,65 +17,36 @@
 import QtQuick 1.0
 import Sky     1.0
 
-Application
+Item
 {
-    id: application
-
     //---------------------------------------------------------------------------------------------
     // Childs
     //---------------------------------------------------------------------------------------------
 
-    Window
-    {
-        id: window
-
-        property color colorA: "#000032"
-        property color colorB: "#008cdc"
-
-        width : st.dp1024
-        height: st.dp576
-
-        st: StyleApplication { id: st }
-
-        gradient: Gradient
-        {
-            GradientStop { position: 0.0; color: window.colorA }
-            GradientStop { position: 1.0; color: window.colorB }
-        }
-
 //#DESKTOP
-        Component.onCompleted: centerWindow()
+    ViewDrag
+    {
+        anchors.fill: parent
+
+        onDoubleClicked: buttonsWindow.onMaximize()
+    }
+
+    ButtonsWindow
+    {
+        id: buttonsWindow
+
+        anchors.top  : parent.top
+        anchors.right: parent.right
+    }
 //#END
 
-        onKeyPressed:
-        {
-            if (event.key == Qt.Key_Escape)
-            {
-                event.accepted = true;
+    ButtonTouch
+    {
+        anchors.left: parent.left
+        anchors.top : parent.top
 
-                close();
-            }
-            else if (event.key == Qt.Key_F1)
-            {
-                event.accepted = true;
+        anchors.margins: st.dp2
 
-                sk.restartScript();
-            }
-            else if (event.key == Qt.Key_F12)
-            {
-                event.accepted = true;
-
-                application.takeShot();
-            }
-        }
-
-        Loader
-        {
-            id: loader
-
-            anchors.fill: parent
-
-            source: "PageMain.qml"
-        }
+        text: qsTr("HEVR Client")
     }
 }

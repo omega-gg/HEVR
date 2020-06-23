@@ -160,5 +160,6 @@ fi
 "$SkyBase"/BaseButton.qml \
 "$SkyTouch"/StyleTouch.qml \
 "$SkyTouch"/BaseButtonTouch.qml \
+"$SkyTouch"/ButtonTouch.qml \
 "$SkyTouch"/ButtonTouchIcon.qml \
 "$SkyTouch"/ButtonsWindow.qml \

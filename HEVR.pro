@@ -20,5 +20,7 @@ OTHER_FILES += 3rdparty.sh \
                .appveyor.yml \
                content/generate.sh \
                content/Main.qml \
+               content/StyleApplication.qml \
+               content/PageMain.qml \
                include/generate.sh \
                dist/changes/1.0.0.md \
