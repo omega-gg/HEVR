@@ -1,5 +1,6 @@
 HEVR - High Efficiency Virtual Reality
 ---
+[![Discord](https://img.shields.io/discord/705770212485496852)](http://omega.gg/discord)
 [![azure](https://dev.azure.com/bunjee/HEVR/_apis/build/status/omega-gg.HEVR)](https://dev.azure.com/bunjee/HEVR/_build)
 [![appveyor](https://ci.appveyor.com/api/projects/status/xmh6c5oa6dbflbta?svg=true)](https://ci.appveyor.com/project/3unjee/hevr)
 [![GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl.html)
