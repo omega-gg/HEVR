@@ -23,9 +23,9 @@ Column
     // Settings
     //---------------------------------------------------------------------------------------------
 
-    anchors.margins: spacing
+    anchors.margins: st.margins
 
-    spacing: st.dp2
+    spacing: st.margins
 
     //---------------------------------------------------------------------------------------------
     // Childs
@@ -61,7 +61,7 @@ Column
     {
         width: st.dp64
 
-        margins: st.dp14
+        margins: st.dp12
 
         checked: (index == 2)
 

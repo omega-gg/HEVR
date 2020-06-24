@@ -163,3 +163,5 @@ fi
 "$SkyTouch"/ButtonTouch.qml \
 "$SkyTouch"/ButtonTouchIcon.qml \
 "$SkyTouch"/ButtonsWindow.qml \
+"$SkyTouch"/BaseLabel.qml \
+"$SkyTouch"/Label.qml \

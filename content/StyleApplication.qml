@@ -26,7 +26,9 @@ StyleTouch
 
     property url icon_home    : "icons/home.svg"
     property url icon_settings: "icons/cog.svg"
-    property url icon_about   : "icons/question.svg"
+    property url icon_about   : "icons/info-circle.svg"
+
+    property url icon_console: "icons/terminal.svg"
 
     //---------------------------------------------------------------------------------------------
     // Settings

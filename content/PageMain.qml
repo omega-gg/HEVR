@@ -44,10 +44,41 @@ Item
     }
 //#END
 
-    BarSide
+    Label
     {
-        // NOTE: We have to specify anchors to have proper margins
+        id: label
+
         anchors.left: parent.left
         anchors.top : parent.top
+
+        width: barSide.width
+
+        text: qsTr("HEVR")
+
+        height: st.dp26
+
+        font.pixelSize: st.dp16
+    }
+
+    BarSide
+    {
+        id: barSide
+
+        // NOTE: We have to specify anchors to have proper margins
+        anchors.left: parent.left
+        anchors.top : label.bottom
+    }
+
+    ButtonTouchIcon
+    {
+        anchors.left  : parent.left
+        anchors.bottom: parent.bottom
+
+        width : barSide.width
+        height: st.dp40
+
+        margins: st.dp8
+
+        icon: st.icon_console
     }
 }
