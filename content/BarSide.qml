@@ -17,62 +17,56 @@
 import QtQuick 1.0
 import Sky     1.0
 
-Application
+Column
 {
-    id: application
-
     //---------------------------------------------------------------------------------------------
-    // Properties
+    // Settings
     //---------------------------------------------------------------------------------------------
 
-    property int index: 0
+    anchors.margins: spacing
+
+    spacing: st.dp2
 
     //---------------------------------------------------------------------------------------------
     // Childs
     //---------------------------------------------------------------------------------------------
 
-    Window
+    ButtonTouchIcon
     {
-        id: window
+        width: st.dp64
 
-        width : st.dp1024
-        height: st.dp576
+        margins: st.dp12
 
-        st: StyleApplication { id: st }
+        checked: (index == 0)
 
-//#DESKTOP
-        Component.onCompleted: centerWindow()
-//#END
+        icon: st.icon_home
 
-        onKeyPressed:
-        {
-            if (event.key == Qt.Key_Escape)
-            {
-                event.accepted = true;
+        onPressed: index = 0
+    }
 
-                close();
-            }
-            else if (event.key == Qt.Key_F1)
-            {
-                event.accepted = true;
+    ButtonTouchIcon
+    {
+        width: st.dp64
 
-                sk.restartScript();
-            }
-            else if (event.key == Qt.Key_F12)
-            {
-                event.accepted = true;
+        margins: st.dp12
 
-                application.takeShot();
-            }
-        }
+        checked: (index == 1)
 
-        Loader
-        {
-            id: loader
+        icon: st.icon_settings
 
-            anchors.fill: parent
+        onPressed: index = 1
+    }
 
-            source: "PageMain.qml"
-        }
+    ButtonTouchIcon
+    {
+        width: st.dp64
+
+        margins: st.dp14
+
+        checked: (index == 2)
+
+        icon: st.icon_about
+
+        onPressed: index = 2
     }
 }

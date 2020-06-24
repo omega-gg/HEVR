@@ -90,9 +90,9 @@ cp $content/*.qml $path
 
 if [ "$2" = "all" -o "$2" = "deploy" -o $1 = "android"  ]; then
 
-    echo "COPYING pictures"
+    echo "COPYING icons"
 
-    #cp -r $content/pictures $path
+    cp -r $content/icons $path
 fi
 
 #--------------------------------------------------------------------------------------------------
