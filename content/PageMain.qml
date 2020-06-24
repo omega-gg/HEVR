@@ -49,15 +49,24 @@ Item
         id: label
 
         anchors.left: parent.left
-        anchors.top : parent.top
 
-        width: barSide.width
+//#DESKTOP
+        anchors.right: buttonsWindow.left
+//#ELSE
+        anchors.right: parent.right
+//#END
 
-        text: qsTr("HEVR")
+        anchors.top: parent.top
 
         height: st.dp26
 
+        padding: st.dp8
+
+        text: qsTr("HEVR")
+
         font.pixelSize: st.dp16
+
+        itemText.horizontalAlignment: Text.AlignLeft
     }
 
     BarSide
