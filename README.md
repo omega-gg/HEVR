@@ -101,7 +101,7 @@ Deploy the application and its dependencies:
 
 ## License
 
-Copyright (C) 2015 - 2020 HEVR authors | http://omega.gg/HEVR
+Copyright (C) 2020 HEVR authors | http://omega.gg/HEVR
 
 ### Authors
 
@@ -109,10 +109,10 @@ Copyright (C) 2015 - 2020 HEVR authors | http://omega.gg/HEVR
 
 ### GNU General Public License Usage
 
-HEVR client may be used under the terms of the GNU General Public License version 3 as published
-by the Free Software Foundation and appearing in the LICENSE.md file included in the packaging
-of this file. Please review the following information to ensure the GNU General Public License
-requirements will be met: https://www.gnu.org/licenses/gpl.html.
+HEVR may be used under the terms of the GNU General Public License version 3 as published by the
+Free Software Foundation and appearing in the LICENSE.md file included in the packaging of this
+file. Please review the following information to ensure the GNU General Public License requirements
+will be met: https://www.gnu.org/licenses/gpl.html.
 
 ### GNU Lesser General Public License Usage
 
@@ -120,3 +120,10 @@ libHEVR may be used under the terms of the GNU Lesser General Public License ver
 by the Free Software Foundation and appearing in the LICENSE.md file included in the packaging of
 this file. Please review the following information to ensure the GNU Lesser General Public License
 requirements will be met: https://www.gnu.org/licenses/lgpl.html.
+
+### Private License Usage
+
+HEVR licensees holding valid private licenses may use this file in accordance with the private
+license agreement provided with the Software or, alternatively, in accordance with the terms
+contained in written agreement between you and HEVR authors. For further information contact us at
+contact@omega.gg.
