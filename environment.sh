@@ -5,29 +5,74 @@ set -e
 # Settings
 #--------------------------------------------------------------------------------------------------
 
+Sky="../Sky"
+
+#--------------------------------------------------------------------------------------------------
+
+compiler_win="mingw"
+
 qt="qt5"
+
+#--------------------------------------------------------------------------------------------------
+# Functions
+#--------------------------------------------------------------------------------------------------
+
+replace()
+{
+    expression='s/'"$1"'=\"'"$2"'"/'"$1"'=\"'"$3"'"/g'
+
+    sed -i $expression environment.sh
+
+    sed -i $expression configure.sh
+    sed -i $expression build.sh
+    sed -i $expression deploy.sh
+
+    sed -i $expression content/generate.sh
+}
 
 #--------------------------------------------------------------------------------------------------
 # Syntax
 #--------------------------------------------------------------------------------------------------
 
-if [ $# != 1 ] || [ $1 != "qt4" -a $1 != "qt5" ]; then
+if [ $# != 2 -a $# != 3 ] \
+   || \
+   [ $1 != "gcc" -a $1 != "mingw" -a $1 != "msvc" ] || [ $2 != "qt4" -a $2 != "qt5" ] \
+   || \
+   [ $# = 3 -a "$3" != "sky" ]; then
 
-    echo "Usage: environment <qt4 | qt5>"
+    echo "Usage: environment <gcc | mingw | msvc> <qt4 | qt5> [sky]"
 
     exit 1
+fi
+
+#--------------------------------------------------------------------------------------------------
+# Sky
+#--------------------------------------------------------------------------------------------------
+
+if [ "$2" = "sky" ]; then
+
+    echo "ENVIRONMENT Sky"
+    echo "---------------"
+
+    cd "$Sky"
+
+    sh environment.sh $1 $2
+
+    cd -
+
+    echo "---------------"
+    echo ""
 fi
 
 #--------------------------------------------------------------------------------------------------
 # Replacements
 #--------------------------------------------------------------------------------------------------
 
-expression='s/qt=\"'"$qt"'"/qt=\"'"$1"'"/g'
+if [ $1 = "msvc" ]; then
 
-sed -i $expression environment.sh
+    replace compiler_win $compiler_win msvc
+else
+    replace compiler_win $compiler_win mingw
+fi
 
-sed -i $expression configure.sh
-sed -i $expression build.sh
-sed -i $expression deploy.sh
-
-sed -i $expression content/generate.sh
+replace qt $qt $2
