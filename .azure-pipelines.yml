@@ -32,6 +32,7 @@ jobs:
     vmImage: "windows-latest"
   steps:
   - bash: |
+      sh environment.sh msvc qt5
       sh build.sh win32-msvc all
       cd deploy
       7z a ../HEVR.zip *
@@ -43,6 +44,7 @@ jobs:
     vmImage: "windows-latest"
   steps:
   - bash: |
+      sh environment.sh msvc qt5
       sh build.sh win64-msvc all
       cd deploy
       7z a ../HEVR.zip *

@@ -21,13 +21,33 @@ replace()
 {
     expression='s/'"$1"'=\"'"$2"'"/'"$1"'=\"'"$3"'"/g'
 
-    sed -i $expression environment.sh
+    apply $expression environment.sh
 
-    sed -i $expression configure.sh
-    sed -i $expression build.sh
-    sed -i $expression deploy.sh
+    apply $expression configure.sh
+    apply $expression build.sh
+    apply $expression deploy.sh
 
-    sed -i $expression content/generate.sh
+    apply $expression content/generate.sh
+}
+
+apply()
+{
+    if [ $host = "macOS" ]; then
+
+        sed -i "" $1 $2
+    else
+        sed -i $1 $2
+    fi
+}
+
+#--------------------------------------------------------------------------------------------------
+
+getOs()
+{
+    case `uname` in
+    Darwin*) echo "macOS";;
+    *)       echo "other";;
+    esac
 }
 
 #--------------------------------------------------------------------------------------------------
@@ -38,9 +58,9 @@ if [ $# != 2 -a $# != 3 ] \
    || \
    [ $1 != "mingw" -a $1 != "msvc" ] || [ $2 != "qt4" -a $2 != "qt5" ] \
    || \
-   [ $# = 3 -a "$3" != "sky" ]; then
+   [ $# = 3 -a "$3" != "all" ]; then
 
-    echo "Usage: environment <mingw | msvc> <qt4 | qt5> [sky]"
+    echo "Usage: environment <mingw | msvc> <qt4 | qt5> [all]"
 
     exit 1
 fi
@@ -49,7 +69,7 @@ fi
 # Sky
 #--------------------------------------------------------------------------------------------------
 
-if [ "$3" = "sky" ]; then
+if [ "$3" = "all" ]; then
 
     echo "ENVIRONMENT Sky"
     echo "---------------"
