@@ -63,7 +63,7 @@ Recommended IDE:
 
 You can configure and build HEVR with a single line:
 
-    sh build.sh <win32 | win64 | win32-msvc | win64-msvc | macOS | linux | android> all
+    sh build.sh <win32 | win64 | macOS | linux | android> all
 
 For instance you would do that for Windows 64 bit:
 
