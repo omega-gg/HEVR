@@ -33,7 +33,7 @@ jobs:
   steps:
   - bash: |
       sh environment.sh msvc qt5
-      sh build.sh win32-msvc all
+      sh build.sh win32 all
       cd deploy
       7z a ../HEVR.zip *
   - publish: $(System.DefaultWorkingDirectory)/HEVR.zip
@@ -45,7 +45,7 @@ jobs:
   steps:
   - bash: |
       sh environment.sh msvc qt5
-      sh build.sh win64-msvc all
+      sh build.sh win64 all
       cd deploy
       7z a ../HEVR.zip *
   - publish: $(System.DefaultWorkingDirectory)/HEVR.zip
