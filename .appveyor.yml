@@ -6,7 +6,7 @@ environment:
       platform: win32
       compiler: mingw
 
-install:
+build_script:
   - sh environment.sh %compiler% %qt%
   - sh build.sh %platform% all
   - cd deploy
