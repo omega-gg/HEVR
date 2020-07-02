@@ -19,6 +19,8 @@ contains(QT_MAJOR_VERSION, 5) {
     win32:QT += winextras
 
     unix:!macx:!android:QT += x11extras
+
+    android:QT += androidextras
 }
 
 DEFINES += SK_CORE_LIBRARY SK_GUI_LIBRARY
