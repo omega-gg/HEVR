@@ -86,7 +86,7 @@ cp $content/*.qml $path
 # Content
 #--------------------------------------------------------------------------------------------------
 
-if [ "$2" = "all" -o "$2" = "deploy" -o $1 = "android"  ]; then
+if [ $1 = "android" -o "$2" = "all" -o "$2" = "deploy" ]; then
 
     echo "COPYING icons"
 
