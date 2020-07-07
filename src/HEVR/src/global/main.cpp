@@ -23,7 +23,7 @@
 // Sk includes
 #include <WApplication>
 
-// HEVR includes
+// Application includes
 #include <ControllerCore>
 
 //-------------------------------------------------------------------------------------------------

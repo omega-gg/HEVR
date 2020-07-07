@@ -132,4 +132,7 @@ ControllerCore::ControllerCore() : WController()
     // Context
 
     wControllerDeclarative->setContextProperty("sk", sk);
+
+    wControllerDeclarative->setContextProperty("core",  this);
+    wControllerDeclarative->setContextProperty("local", &(_local));
 }

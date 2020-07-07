@@ -26,7 +26,7 @@
 // Sk includes
 #include <WController>
 
-// HEVR includes
+// Application includes
 #include <DataLocal>
 
 // Defines
