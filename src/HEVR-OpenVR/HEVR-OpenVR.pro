@@ -26,6 +26,12 @@ contains(QT_MAJOR_VERSION, 4) {
     DEFINES += QT_LATEST
 }
 
+android {
+    DEFINES += SK_MOBILE
+} else {
+    DEFINES += SK_DESKTOP
+}
+
 deploy|android {
     DEFINES += SK_DEPLOY
 }
