@@ -34,11 +34,11 @@
 #include <WViewResizer>
 #include <WViewDrag>
 #include <WWindow>
+#include <WImageColorFilter>
 #include <WDeclarativeApplication>
 #include <WDeclarativeBorders>
 #include <WDeclarativeImage>
 #include <WDeclarativeImageSvg>
-#include <WImageColorFilter>
 
 W_INIT_CONTROLLER(ControllerCore)
 
@@ -92,10 +92,17 @@ ControllerCore::ControllerCore() : WController()
     //---------------------------------------------------------------------------------------------
     // QML
     //---------------------------------------------------------------------------------------------
+    // Global
 
     qmlRegisterUncreatableType<WControllerDeclarative>("Sky", 1,0, "Sk", "Sk is not creatable");
 
+    //---------------------------------------------------------------------------------------------
+    // Application
+
     qmlRegisterType<WDeclarativeApplication>("Sky", 1,0, "Application");
+
+    //---------------------------------------------------------------------------------------------
+    // View
 
     qmlRegisterUncreatableType<WView>("Sky", 1,0, "View", "View is abstract");
 
@@ -104,7 +111,15 @@ ControllerCore::ControllerCore() : WController()
 
     qmlRegisterType<WWindow>("Sky", 1,0, "BaseWindow");
 
+    //---------------------------------------------------------------------------------------------
+    // Image
+
+    qmlRegisterUncreatableType<WImageFilter>("Sky", 1,0, "ImageFilter", "ImageFilter is abstract");
+
     qmlRegisterType<WImageColorFilter>("Sky", 1,0, "ImageColorFilter");
+
+    //---------------------------------------------------------------------------------------------
+    // Declarative
 
     qmlRegisterType<WDeclarativeBorders>("Sky", 1,0, "Borders");
 
@@ -121,9 +136,8 @@ ControllerCore::ControllerCore() : WController()
     qmlRegisterType<WDeclarativeImageSvgScale>("Sky", 1,0, "ImageSvgScale");
 #endif
 
-    qmlRegisterUncreatableType<WImageFilter>("Sky", 1,0, "ImageFilter", "ImageFilter is abstract");
-
-    qmlRegisterType<WImageColorFilter>("Sky", 1,0, "ImageColorFilter");
+    //---------------------------------------------------------------------------------------------
+    // Events
 
     qmlRegisterUncreatableType<WDeclarativeKeyEvent>("Sky", 1,0, "DeclarativeKeyEvent",
                                                      "DeclarativeKeyEvent is not creatable");
