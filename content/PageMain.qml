@@ -58,6 +58,8 @@ Item
 
         anchors.top: parent.top
 
+        anchors.margins: st.margins
+
         height: st.dp26
 
         padding: st.dp8
@@ -82,6 +84,8 @@ Item
     {
         anchors.left  : parent.left
         anchors.bottom: parent.bottom
+
+        anchors.margins: st.margins
 
         width : barSide.width
         height: st.dp40
