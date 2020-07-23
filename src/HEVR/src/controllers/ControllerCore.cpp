@@ -34,7 +34,7 @@
 #include <WViewResizer>
 #include <WViewDrag>
 #include <WWindow>
-#include <WImageColorFilter>
+#include <WImageFilterColor>
 #include <WDeclarativeApplication>
 #include <WDeclarativeBorders>
 #include <WDeclarativeImage>
@@ -116,7 +116,7 @@ ControllerCore::ControllerCore() : WController()
 
     qmlRegisterUncreatableType<WImageFilter>("Sky", 1,0, "ImageFilter", "ImageFilter is abstract");
 
-    qmlRegisterType<WImageColorFilter>("Sky", 1,0, "ImageColorFilter");
+    qmlRegisterType<WImageFilterColor>("Sky", 1,0, "ImageFilterColor");
 
     //---------------------------------------------------------------------------------------------
     // Declarative
