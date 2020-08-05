@@ -36,7 +36,7 @@ WindowsKit_version="10"
 #--------------------------------------------------------------------------------------------------
 # Android
 
-JDK_version="8u251"
+JDK_version="8u261"
 
 SDK_version="29"
 NDK_version="21"
