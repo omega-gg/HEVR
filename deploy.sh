@@ -197,7 +197,7 @@ elif [ $1 = "linux" ]; then
 
         mkdir $deploy/imageformats
 
-        cp "$path"/libpng16.so.16 $deploy
+        cp "$path"/libpng16.so.* $deploy
 
         cp "$path"/libQtCore.so.4        $deploy
         cp "$path"/libQtGui.so.4         $deploy
@@ -219,16 +219,16 @@ elif [ $1 = "linux" ]; then
         mkdir $deploy/QtQuick.2
         mkdir $deploy/xcbglintegrations
 
-        sudo cp "$path"/libz.so.1 $deploy
+        sudo cp "$path"/libz.so.* $deploy
 
-        sudo cp "$path"/libicudata.so.60 $deploy
-        sudo cp "$path"/libicui18n.so.60 $deploy
-        sudo cp "$path"/libicuuc.so.60   $deploy
+        sudo cp "$path"/libicudata.so.* $deploy
+        sudo cp "$path"/libicui18n.so.* $deploy
+        sudo cp "$path"/libicuuc.so.*   $deploy
 
-        sudo cp "$path"/libdouble-conversion.so.1 $deploy
-        sudo cp "$path"/libpng16.so.16            $deploy
-        sudo cp "$path"/libharfbuzz.so.0          $deploy
-        sudo cp "$path"/libxcb-xinerama.so.0      $deploy
+        sudo cp "$path"/libdouble-conversion.so.* $deploy
+        sudo cp "$path"/libpng16.so.*             $deploy
+        sudo cp "$path"/libharfbuzz.so.*          $deploy
+        sudo cp "$path"/libxcb-xinerama.so.*      $deploy
 
         cp "$path"/libQt5Core.so.5        $deploy
         cp "$path"/libQt5Gui.so.5         $deploy
