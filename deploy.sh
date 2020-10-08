@@ -231,9 +231,9 @@ elif [ $1 = "linux" ]; then
         cp "$path"/libxcb-xinerama.so.*      $deploy
 
         # NOTE: Required for Ubuntu 20.04.
-        if [ -f "$path"/libpcre2-16.so.* ]; then
+        if [ -f "$path"/libpcre2-16.so.0 ]; then
 
-            cp "$path"/libpcre2-16.so.* $deploy
+            cp "$path"/libpcre2-16.so.0 $deploy
         fi
 
         cp "$path"/libQt5Core.so.5        $deploy
