@@ -63,26 +63,6 @@ public: // Variables
 
 /* virtual */ bool VDataLocalWrite::run()
 {
-    QtLockedFile file(path);
-
-    if (WControllerFile::tryUnlock(file) == false)
-    {
-        qWarning("VDataLocalWrite::run: File is locked %s.", path.C_STR);
-
-        return false;
-    }
-
-    if (file.open(QIODevice::WriteOnly) == false)
-    {
-        qWarning("VDataLocalWrite::run: Failed to open file %s.", path.C_STR);
-
-        return false;
-    }
-
-    file.lock(QtLockedFile::ReadLock);
-
-    file.unlock();
-
     return true;
 }
 
