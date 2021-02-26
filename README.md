@@ -6,6 +6,8 @@ HEVR - High Efficiency Virtual Reality
 [![GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl.html)
 [![LGPLv3](https://img.shields.io/badge/License-LGPLv3-blue.svg)](https://www.gnu.org/licenses/lgpl.html)
 
+** This project is currently in a hiatus **
+
 ** This is a work in progress and not yet released **
 
 HEVR is a high efficiency virtual reality streamer.<br>
