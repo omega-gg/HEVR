@@ -36,7 +36,7 @@ deploy|android {
     DEFINES += SK_DEPLOY
 }
 
-!win32-msvc*:QMAKE_CXXFLAGS += -std=c++11
+!win32-msvc*:QMAKE_CXXFLAGS += -std=c++14
 
 unix:QMAKE_LFLAGS += "-Wl,-rpath,'\$$ORIGIN'"
 
