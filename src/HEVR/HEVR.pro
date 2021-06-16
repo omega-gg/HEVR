@@ -13,12 +13,10 @@ contains(QT_MAJOR_VERSION, 4) {
     QT += opengl declarative network xml xmlpatterns svg
 } else {
     QT += opengl quick network xml xmlpatterns svg
-}
 
-contains(QT_MAJOR_VERSION, 5) {
     win32:QT += winextras
 
-    unix:!macx:!android:QT += x11extras
+    unix:!macx:!android:QT += dbus x11extras
 
     android:QT += androidextras
 }
@@ -75,6 +73,10 @@ contains(QT_MAJOR_VERSION, 5) {
                    $$SK/include/Qt5/QtGui \
                    $$SK/include/Qt5/QtQml \
                    $$SK/include/Qt5/QtQuick
+}
+
+unix:!macx:!android:contains(QT_MAJOR_VERSION, 5) {
+    INCLUDEPATH += $$SK/include/Qt5/QtDBus
 }
 
 unix:contains(QT_MAJOR_VERSION, 4) {
