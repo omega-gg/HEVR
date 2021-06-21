@@ -21,6 +21,13 @@ contains(QT_MAJOR_VERSION, 4) {
     android:QT += androidextras
 }
 
+# C++17
+contains(QT_MAJOR_VERSION, 4) {
+    QMAKE_CXXFLAGS += -std=c++1z
+} else {
+    CONFIG += c++1z
+}
+
 DEFINES += SK_CORE_LIBRARY SK_GUI_LIBRARY
 
 contains(QT_MAJOR_VERSION, 4) {
@@ -47,8 +54,6 @@ deploy|android {
 
     RESOURCES = $$HEVR/dist/HEVR.qrc
 }
-
-!win32-msvc*:QMAKE_CXXFLAGS += -std=c++14
 
 unix:QMAKE_LFLAGS += "-Wl,-rpath,'\$$ORIGIN'"
 

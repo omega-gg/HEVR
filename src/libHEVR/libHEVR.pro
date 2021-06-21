@@ -18,6 +18,13 @@ contains(QT_MAJOR_VERSION, 4) {
     QT += network xml xmlpatterns
 }
 
+# C++17
+contains(QT_MAJOR_VERSION, 4) {
+    QMAKE_CXXFLAGS += -std=c++1z
+} else {
+    CONFIG += c++1z
+}
+
 DEFINES += SK_CONSOLE SK_NO_QML SK_CORE_LIBRARY HEVR_LIBRARY
 
 contains(QT_MAJOR_VERSION, 4) {
@@ -35,8 +42,6 @@ android {
 deploy|android {
     DEFINES += SK_DEPLOY
 }
-
-!win32-msvc*:QMAKE_CXXFLAGS += -std=c++14
 
 unix:QMAKE_LFLAGS += "-Wl,-rpath,'\$$ORIGIN'"
 
