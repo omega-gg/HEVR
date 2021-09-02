@@ -54,7 +54,7 @@ include(src/thread/thread.pri)
 include(src/3rdparty/qtsingleapplication/qtsingleapplication.pri)
 
 INCLUDEPATH += $$SK/include/SkCore \
-               $$HEVR/include/libHEVR \
+               $$HEVR/include/libHEVR
 
 # Windows dependency for ShellExecuteA
 win32-msvc*:LIBS += shell32.lib

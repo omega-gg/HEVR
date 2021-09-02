@@ -55,7 +55,7 @@ include(src/3rdparty/qtsingleapplication/qtsingleapplication.pri)
 
 INCLUDEPATH += $$SK/include/SkCore \
                $$HEVR/include/libHEVR \
-               $$HEVR/include/HEVR-OpenVR \
+               $$HEVR/include/HEVR-OpenVR
 
 # Windows dependency for ShellExecuteA
 win32-msvc*:LIBS += shell32.lib
