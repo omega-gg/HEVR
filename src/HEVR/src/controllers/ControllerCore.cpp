@@ -69,7 +69,7 @@ ControllerCore::ControllerCore() : WController()
 
     wControllerFile->initMessageHandler();
 
-    qDebug("Welcome to HEVR");
+    qDebug("HEVR %s", sk->version().C_STR);
 
     qDebug("Path storage: %s", path.C_STR);
     qDebug("Path log:     %s", wControllerFile->pathLog().C_STR);

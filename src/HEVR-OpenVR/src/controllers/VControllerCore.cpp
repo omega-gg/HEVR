@@ -26,6 +26,7 @@
 #include <QDir>
 
 // Sk includes
+#include <WControllerApplication>
 #include <WControllerFile>
 
 #ifndef OPENVR_NO_CONTROLLERCORE
@@ -64,7 +65,7 @@ void VControllerCorePrivate::init()
 
     wControllerFile->initMessageHandler();
 
-    qDebug("Welcome to HEVR");
+    qDebug("HEVR %s", sk->version().C_STR);
 
     qDebug("Path storage: %s", path.C_STR);
     qDebug("Path log:     %s", wControllerFile->pathLog().C_STR);
