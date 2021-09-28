@@ -57,7 +57,7 @@ jobs:
 
 - job: macOS
   pool:
-    vmImage: "macOS-latest"
+    vmImage: "macOS-10.15"
   steps:
   - bash: |
       sh build.sh macOS all
